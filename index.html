@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ayarikapi · streaming, voice acting, dan konten.">
+<title>Ayarikapi · Stream | Voice | Content</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=M+PLUS+U:wght@500..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#303232;--pink:#ffd4d6;--peach:#ffe6d4;--aqua:#bcecf0;--cyan:#72dcec;
+  --lime:#dff0a9;--coral:#fba1a7;--muted:#4e5a57;--white:#fffdf5;
+  --body:Geist,Arial,sans-serif;--title:"M PLUS U",Geist,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:linear-gradient(145deg,#ffd6d8,#fff1e5 56%,#ffd4d6) fixed;color:var(--ink);font:1rem/1.48 var(--body)}
+button,input,textarea{font:inherit;color:inherit}
+a{color:inherit}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #147a91;outline-offset:3px}
+[hidden]{display:none!important}
+.page{width:min(100% - 24px,510px);margin:12px auto 26px;border:1.5px solid var(--ink);background:var(--aqua);isolation:isolate;overflow:hidden}
+.hero{position:relative;padding:27px 18px 22px;background:radial-gradient(ellipse at 46% 8%,#fff3ef 0%,transparent 53%),linear-gradient(132deg,#d9f9f8,#b4edf5 62%,#c8f6ef);isolation:isolate;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;pointer-events:none}
+.hero::before{inset:42% -22% -16% -39%;border:11px solid #7edce8;border-radius:49% 45%;transform:rotate(-24deg);box-shadow:0 14px 0 #ecf6bb,0 -14px 0 #d5f5f2}
+.hero::after{inset:12% -31% 2% 63%;border:8px solid #fbf2bf;border-radius:48%;transform:rotate(28deg)}
+.star{position:absolute;pointer-events:none;line-height:1;color:#fffdf2}
+.star::before{content:"✦"}
+.star.one{top:17px;left:12px;font-size:22px}.star.two{top:65px;right:9px;font-size:22px}.star.three{top:142px;left:6px;font-size:19px}.star.four{bottom:20px;right:10px;font-size:30px;color:#fff7c8}
+.brand{text-align:center}
+h1,h2,p{margin:0}
+h1,h2{font-family:var(--title)}
+h1{font-size:clamp(2rem,10vw,3.65rem);line-height:1;letter-spacing:.095em;font-weight:860}
+.ribbon{display:flex;gap:9px;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:12px auto 0;padding:4px 17px;background:#286d7b;color:#fff;font-size:.82rem;font-weight:750;letter-spacing:.13em;border-block:2px solid #80d9e2;clip-path:polygon(5% 0,95% 0,100% 50%,95% 100%,5% 100%,0 50%)}
+.ribbon span{color:#c9f9f1}
+.bio{max-width:34ch;margin:20px auto 17px;text-align:center;line-height:1.48;text-wrap:pretty}
+.bio strong{background:#dbf7f4;padding:1px 3px;box-decoration-break:clone}
+.stats{display:grid;gap:9px;padding:0;margin:0 auto;list-style:none;max-width:380px}
+.stat{display:grid;grid-template-columns:32px minmax(0,1fr) 84px;align-items:center;gap:8px;min-height:58px;text-decoration:none;background:var(--lime);border:1.5px solid #e67e8c;box-shadow:3px 3px 0 #6ab7b8;padding:0 0 0 10px}
+.stat:hover{background:#f0f8c4}
+.icon{display:grid;width:30px;height:30px;place-items:center;color:#b8435a}
+.icon svg{width:24px;height:24px}
+.network{display:block;font-weight:760;line-height:1.15}.handle{display:block;font-size:.78rem;color:#45524b}
+.count{min-height:55px;display:grid;align-content:center;justify-items:center;border-left:1px solid #ce8c8c;line-height:1.2;padding:2px}
+.count strong{font-family:var(--title);font-size:1.19rem;font-weight:900;font-variant-numeric:tabular-nums}
+.count span{font-size:.68rem;font-weight:650}
+.snapshot{text-align:center;margin-top:9px;font-size:.76rem;color:#3e5351}
+.content{background:#eaf9f7;border-top:1.5px solid var(--ink);padding:17px 16px 17px}
+.heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+h2{font-size:1.42rem;line-height:1.2;font-weight:850;letter-spacing:-.022em}
+.nav{display:flex;gap:5px}
+.nav button{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--ink);background:#f7ffed;font-size:1.4rem;line-height:1}
+.nav button:disabled{opacity:.45;cursor:default}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 2px 5px;margin:0 -2px 8px;scrollbar-width:thin}
+.tab{min-height:40px;flex:0 0 auto;padding:5px 12px;border:1px solid var(--ink);background:#fffdf3;font-size:.84rem;font-weight:720}
+.tab[aria-selected=true]{background:var(--lime);box-shadow:2px 2px 0 #f29aa6}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(144px,50%,182px);overflow-x:auto;gap:10px;padding:3px 3px 7px;margin:0 -3px;scroll-padding-inline:3px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#687e76 transparent}
+.tile{scroll-snap-align:start;min-width:0;border:1px solid #3b4c44;background:var(--white);display:flex;flex-direction:column;text-decoration:none;overflow:hidden}
+a.tile:hover .tile-title{text-decoration:underline}
+.thumb{aspect-ratio:1.7;display:grid;place-items:center;position:relative;isolation:isolate;overflow:hidden;background:repeating-linear-gradient(135deg,transparent 0 16px,#fff7 16px 17px),linear-gradient(130deg,#ffd1d2,#fbf4ce 58%,#b8edf0);border-bottom:1px solid #3b4c44}
+.thumb::before{content:"✦";font-size:2.1rem;color:#815263}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile-copy{display:grid;gap:3px;padding:8px 8px 10px}
+.tile-title{font-weight:760;font-size:.87rem;line-height:1.25}
+.tile-meta,.content-note{font-size:.74rem;color:var(--muted)}
+.content-note{margin-top:6px}
+.work{position:relative;padding:19px 16px 22px;border-top:1.5px solid var(--ink);color:var(--white);background:repeating-linear-gradient(40deg,transparent 0 27px,#86dbe734 27px 28px),repeating-linear-gradient(-47deg,transparent 0 33px,#f6a8ad38 33px 34px),#303232}
+.work button{width:100%;min-height:52px;padding:9px 14px;color:var(--ink);background:var(--lime);border:1px solid var(--ink);box-shadow:3px 3px 0 var(--coral);text-align:left;font:850 1.22rem/1.2 var(--title)}
+.work button:hover{background:#f3f8cc}
+.work p{margin-top:10px;font-size:.86rem}
+dialog{width:min(calc(100% - 20px),480px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1.5px solid var(--ink);color:var(--ink);background:var(--white);box-shadow:5px 5px 0 var(--coral);overflow:auto}
+dialog::backdrop{background:#29353599}
+.dialog-inner{padding:15px}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:5px}
+.close{width:42px;height:42px;flex:0 0 auto;border:1px solid var(--ink);background:var(--pink);font-size:1.5rem;line-height:1}
+.form-note{font-size:.84rem;color:var(--muted);margin-bottom:13px}
+form{display:grid;gap:11px}
+label{display:grid;gap:4px;font-weight:720;font-size:.89rem}
+.field-notes{font-weight:400;color:var(--muted)}
+input,textarea{width:100%;min-height:42px;padding:8px 10px;background:white;border:1px solid #6a756c;border-radius:0;font-weight:400;font-size:1rem}
+textarea{resize:vertical;min-height:75px}
+.submit{min-height:45px;border:1px solid var(--ink);background:var(--lime);font-weight:800}
+.confirmation{background:var(--aqua);padding:10px;font-size:.9rem}
+@media (min-width:760px){
+  .page{width:min(calc(100% - 56px),900px);margin:44px auto;display:grid;grid-template-columns: .91fr 1.09fr}
+  .hero{grid-row:span 2;padding:45px 25px 31px;border-right:1.5px solid var(--ink)}
+  .bio{margin-top:25px}.content{border-top:0;padding:29px 24px 22px}.work{padding:19px 24px 24px}
+  h1{font-size:clamp(2.35rem,5.1vw,3.35rem)}
+}
+@media (prefers-reduced-motion:no-preference){.track{scroll-behavior:smooth}}
+@media (max-width:350px){.hero{padding-inline:13px}.content{padding-inline:12px}.tab{padding-inline:10px}}
+
+:root{--ink:#423936;--pink:#ffd2d2;--lime:#e2f3ac;--coral:#f8a6ae;--aqua:#bceff4}
+body{background:var(--pink)}
+.page{width:min(calc(100% - 20px),520px);margin:10px auto 30px;border:2px solid var(--ink);box-shadow:4px 4px 0 #e59da4}
+.hero{padding:24px 16px 19px;background:radial-gradient(ellipse at 43% 10%,#fff7ed,transparent 58%),linear-gradient(145deg,#def6f5,#ade9f3 60%,#cdf3df)}
+.hero::before{border-color:#81dbe8;box-shadow:0 13px 0 #fff4c1,0 -13px 0 #ecfcf4}
+.hero::after{border-color:#fff5c4}
+h1{font-weight:750;letter-spacing:.14em;font-size:clamp(1.8rem,9.5vw,3rem)}
+.ribbon{background:linear-gradient(#48bccc,#277e90);border-block-color:#b9f9ef;text-shadow:0 1px 1px #164f56}
+.artwork{display:block;width:100%;max-width:410px;margin:17px auto 0;padding:0;position:relative;border:1.5px solid var(--ink);background:var(--pink);box-shadow:3px 4px 0 #f1a5ae;text-align:left;overflow:hidden}
+.artwork-preview{display:block;aspect-ratio:664/590;overflow:hidden}
+.artwork img{display:block;width:100%;height:auto;transform-origin:50% 40%;transition:transform .32s ease}
+.artwork-label{position:absolute;right:7px;bottom:7px;background:#fff7e7;border:1px solid var(--ink);padding:5px 9px;font-size:.75rem;font-weight:760}
+.bio{margin-top:16px}
+.stat{box-shadow:3px 3px 0 #66b6bc;transition:transform .18s ease,box-shadow .18s ease}
+.icon{color:#b24463}
+.content{background:#effaf2}
+.work{background:repeating-linear-gradient(42deg,transparent 0 37px,#80d9e546 37px 38px),repeating-linear-gradient(-50deg,transparent 0 43px,#f7a6ae43 43px 44px),#423936}
+.work button{background:#f8f5e6}
+.tile{transition:transform .18s ease}
+button.tile{padding:0;text-align:left;color:inherit;font-family:inherit}
+button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#fff9e8;padding:5px 12px;border:1px solid #fff8e2}
+#player{width:min(calc(100% - 24px),760px)}
+.video-frame{aspect-ratio:16/9;margin:8px 0;background:var(--ink)}
+.video-frame iframe{display:block;width:100%;height:100%;border:0}
+#card-viewer{width:min(calc(100% - 24px),470px)}
+#card-viewer img{display:block;max-height:calc(100dvh - 145px);width:100%;object-fit:contain;margin:6px auto 10px}
+.card-toggle{width:100%;padding:7px;background:var(--lime);border:1px solid var(--ink);font-weight:750}
+.contact-link{display:block;width:max-content;max-width:100%;margin:12px 0 0;font-weight:750}
+@media (hover:hover){
+  .artwork:hover img{transform:scale(1.04)}
+  .stat:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #66b6bc}
+  .tile:hover{transform:translateY(-2px)}
+}
+@media (min-width:760px){
+  .page{display:block;width:min(calc(100% - 52px),970px);margin:34px auto}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;padding:30px;border:0}
+  .brand{grid-column:2;grid-row:1;align-self:end}
+  .artwork{grid-column:1;grid-row:1 / span 4;margin:0;max-width:none}
+  .bio{grid-column:2;grid-row:2;margin:0 auto}
+  .stats{grid-column:2;grid-row:3;width:100%}
+  .snapshot{grid-column:2;grid-row:4;margin:-12px 0 0}
+  .content{border-top:1.5px solid var(--ink)}
+  .track{grid-auto-columns:minmax(180px,1fr)}
+}
+@media(prefers-reduced-motion:no-preference){
+  .artwork{animation:card-in .42s ease-out both}
+  .track{animation:card-in .23s ease-out both}
+  #card-viewer img{animation:card-in .23s ease-out both}
+  @keyframes card-in{from{opacity:.45;translate:0 6px}to{opacity:1;translate:0 0}}
+}
+@media(prefers-reduced-motion:reduce){
+  .artwork img,.stat,.tile{transition:none}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero" aria-labelledby="brand-title">
+    <i class="star one" aria-hidden="true"></i><i class="star two" aria-hidden="true"></i><i class="star three" aria-hidden="true"></i><i class="star four" aria-hidden="true"></i>
+    <header class="brand">
+      <h1 id="brand-title">AYARIKAPI</h1>
+      <p class="ribbon"><span aria-hidden="true">✦</span> Stream | Voice | Content <span aria-hidden="true">✦</span></p>
+    </header>
+    <button type="button" class="artwork" id="open-card" aria-haspopup="dialog">
+      <span class="artwork-preview"><img src="card-front.jpg" width="664" height="920" alt="Ilustrasi chibi Ayarikapi dengan telepon hijau, kacamata merah muda, dan latar biru." fetchpriority="high"></span>
+      <span class="artwork-label">Lihat kartu asli</span>
+    </button>
+    <p class="bio">Streamer dengan <strong id="bio-milestone">10K+ pengikut di tiap platform</strong>. Jago streaming, voice acting, dan siap bikin brand kamu trending.</p>
+    <ul class="stats" aria-label="Media sosial Ayarikapi">
+      <li><a class="stat" href="https://www.youtube.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="youtube"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2Z"/></svg></span><span><span class="network">YouTube</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>10.5K</strong><span>Subscribers</span></span></a></li>
+      <li><a class="stat" href="https://www.tiktok.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="tiktok"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2h3a5.6 5.6 0 0 0 5 4.9V10a8.8 8.8 0 0 1-5-1.7V16a6 6 0 1 1-6-6l.8.1v3.2a3 3 0 1 0 2.2 2.9Z"/></svg></span><span><span class="network">TikTok</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>12.9K</strong><span>Followers</span></span></a></li>
+      <li><a class="stat" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer" data-platform="instagram"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><span class="network">Instagram</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>14.8K</strong><span>Followers</span></span></a></li>
+    </ul>
+    <p class="snapshot" id="snapshot">Snapshot profil · 22 Nov 2026</p>
+  </section>
+
+  <section class="content" aria-labelledby="popular-title">
+    <div class="heading">
+      <h2 id="popular-title">Popular Content</h2>
+      <div class="nav" aria-label="Geser konten">
+        <button type="button" id="prev" aria-label="Konten sebelumnya">‹</button>
+        <button type="button" id="next" aria-label="Konten selanjutnya">›</button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Platform konten">
+      <button class="tab" type="button" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="true">YouTube</button>
+      <button class="tab" type="button" role="tab" id="tab-tiktok" aria-controls="panel-tiktok" aria-selected="false" tabindex="-1">TikTok</button>
+      <button class="tab" type="button" role="tab" id="tab-instagram" aria-controls="panel-instagram" aria-selected="false" tabindex="-1">Instagram</button>
+    </div>
+    <div id="panels"></div>
+    <p class="content-note" id="content-note"></p>
+  </section>
+
+  <section class="work" aria-label="Kerja sama">
+    <button type="button" id="start-inquiry" aria-haspopup="dialog">Let’s work together!</button>
+    <p>Untuk kolaborasi, voice acting, dan brand campaign.</p>
+  </section>
+</main>
+
+<dialog id="inquiry" aria-labelledby="inquiry-title" aria-describedby="form-note">
+  <div class="dialog-inner">
+    <div class="dialog-head"><h2 id="inquiry-title">Let’s work together!</h2><button type="button" id="close-inquiry" class="close" aria-label="Tutup form">×</button></div>
+    <p class="form-note" id="form-note">Mode prototipe. Pengisian form ini tidak mengirim pesan.</p>
+    <form id="inquiry-form">
+      <label>Nama<input name="name" autocomplete="name" maxlength="100" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" maxlength="150" required></label>
+      <label><span>Brand / organisasi <span class="field-notes">(opsional)</span></span><input name="organization" autocomplete="organization" maxlength="120"></label>
+      <label>Ceritakan proyekmu<textarea name="brief" rows="3" maxlength="2000" required></textarea></label>
+      <button class="submit" type="submit">Tes kirim inquiry</button>
+      <p class="confirmation" role="status" hidden></p>
+    </form>
+    <a class="contact-link" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer">Hubungi lewat Instagram</a>
+  </div>
+</dialog>
+<dialog id="card-viewer" aria-labelledby="card-title">
+  <div class="dialog-inner">
+    <div class="dialog-head"><h2 id="card-title">Kartu asli</h2><button type="button" class="close" id="close-card" aria-label="Tutup kartu">×</button></div>
+    <img id="card-front" src="card-front.jpg" width="664" height="920" alt="Sisi ilustrasi kartu asli." loading="lazy">
+    <img id="card-back" src="card-back.jpg" width="664" height="920" alt="Sisi informasi kartu asli." loading="lazy" hidden>
+    <button type="button" class="card-toggle" id="flip-card">Lihat sisi belakang</button>
+  </div>
+</dialog>
+<dialog id="player" aria-labelledby="player-title">
+  <div class="dialog-inner">
+    <div class="dialog-head"><h2 id="player-title">YouTube</h2><button type="button" class="close" id="close-player" aria-label="Tutup pemutar">×</button></div>
+    <div class="video-frame" id="video-frame"></div>
+    <a id="video-link" target="_blank" rel="noopener noreferrer">Buka di YouTube</a>
+  </div>
+</dialog>
+<script>
+const content = {
+  youtube: [
+    {title:"SAY NO – Tasya Kamila", type:"Cover · 49K tayangan", id:"KesOSmWdVJI"},
+    {title:"IRL Date with Nyomanuk", type:"Kolaborasi", id:"CRqNonrgP20"},
+    {title:"Cicak bahasa Jepangnya apa sih?", type:"Kelas Jepang · 4.7K tayangan", id:"Yrs6jm-sZeo"}
+  ],
+  tiktok: [
+    {title:"POV: aura kawaii anime", type:"POV", url:"https://www.tiktok.com/@ayarikapi/video/7706445746412817671"},
+    {}, {}
+  ],
+  instagram: [
+    {title:"Tonton Reel", type:"266K tayangan", url:"https://www.instagram.com/ayarikapi/reel/DfjWTWpB7UM/"},
+    {title:"Tonton Reel", type:"131K tayangan", url:"https://www.instagram.com/ayarikapi/reel/DdILCF1SE73/"},
+    {title:"Tonton Reel", type:"62.1K tayangan", url:"https://www.instagram.com/ayarikapi/reel/DdqCaYbTtYA/"}
+  ]
+};
+
+const platforms = Object.keys(content);
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+const previous = document.querySelector('#prev');
+const next = document.querySelector('#next');
+const note = document.querySelector('#content-note');
+let currentTrack;
+
+function renderTile(post, index, platform) {
+  const url = post.id ? 'https://www.youtube.com/watch?v=' + post.id : post.url;
+  const tile = document.createElement(post.id ? 'button' : url ? 'a' : 'div');
+  tile.className = 'tile';
+  if (post.id) {
+    tile.type = 'button';
+    tile.setAttribute('aria-haspopup', 'dialog');
+    tile.addEventListener('click', () => playVideo(post, url));
+  } else if (url) {
+    tile.href = url;
+    tile.target = '_blank';
+    tile.rel = 'noopener noreferrer';
+    if (platform === 'instagram') tile.setAttribute('aria-label', 'Tonton Reel Instagram dengan ' + post.type);
+  }
+  const thumb = document.createElement('span');
+  thumb.className = 'thumb';
+  thumb.setAttribute('aria-hidden', 'true');
+  if (post.id) {
+    const img = document.createElement('img');
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('error', () => img.remove(), {once:true});
+    img.src = 'https://i.ytimg.com/vi/' + post.id + '/mqdefault.jpg';
+    thumb.append(img);
+  }
+  const copy = document.createElement('span');
+  copy.className = 'tile-copy';
+  const title = document.createElement('span');
+  title.className = 'tile-title';
+  title.textContent = post.title || 'Slot konten ' + (index + 1);
+  const meta = document.createElement('span');
+  meta.className = 'tile-meta';
+  meta.textContent = post.type || (platform === 'instagram' ? 'Menunggu link Reel' : 'Menunggu link video');
+  copy.append(title, meta);
+  tile.append(thumb, copy);
+  return tile;
+}
+
+for (const platform of platforms) {
+  const panel = document.createElement('div');
+  panel.id = 'panel-' + platform;
+  panel.setAttribute('role', 'tabpanel');
+  panel.setAttribute('aria-labelledby', 'tab-' + platform);
+  const track = document.createElement('div');
+  track.className = 'track';
+  track.tabIndex = 0;
+  track.setAttribute('aria-label', 'Daftar konten yang bisa digeser');
+  track.append(...content[platform].map((post, index) => renderTile(post, index, platform)));
+  track.addEventListener('scroll', updateControls, {passive:true});
+  panel.append(track);
+  document.querySelector('#panels').append(panel);
+}
+
+function updateControls() {
+  if (!currentTrack) return;
+  previous.disabled = currentTrack.scrollLeft < 4;
+  next.disabled = currentTrack.scrollWidth - currentTrack.clientWidth - currentTrack.scrollLeft < 4;
+}
+
+function selectTab(index, moveFocus = false) {
+  tabs.forEach((tab, tabIndex) => {
+    const active = tabIndex === index;
+    const panel = document.getElementById(tab.getAttribute('aria-controls'));
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    panel.hidden = !active;
+    if (active) currentTrack = panel.firstElementChild;
+  });
+  if (moveFocus) tabs[index].focus();
+  const filled = content[platforms[index]].filter(post => post.url || post.id).length;
+  note.textContent = filled === 3 ? 'Pilihan untuk prototipe' : 'Baru ' + filled + ' dari 3 link video tersedia';
+  updateControls();
+}
+
+tabs.forEach((tab,index) => {
+  tab.addEventListener('click', () => selectTab(index));
+  tab.addEventListener('keydown', event => {
+    const destinations = {
+      ArrowRight:(index + 1) % tabs.length,
+      ArrowLeft:(index + tabs.length - 1) % tabs.length,
+      Home:0,
+      End:tabs.length - 1
+    };
+    if (!Object.hasOwn(destinations, event.key)) return;
+    event.preventDefault();
+    selectTab(destinations[event.key], true);
+  });
+});
+
+function scrollByTile(direction) {
+  const gap = parseFloat(getComputedStyle(currentTrack).columnGap);
+  currentTrack.scrollBy({left:direction * (currentTrack.firstElementChild.offsetWidth + gap)});
+}
+previous.addEventListener('click', () => scrollByTile(-1));
+next.addEventListener('click', () => scrollByTile(1));
+window.addEventListener('resize', updateControls);
+selectTab(0);
+
+const inquiry = document.getElementById('inquiry');
+const form = document.getElementById('inquiry-form');
+const confirmation = form.querySelector('.confirmation');
+document.getElementById('start-inquiry').addEventListener('click', () => inquiry.showModal());
+document.getElementById('close-inquiry').addEventListener('click', () => inquiry.close());
+form.addEventListener('input', () => {
+  confirmation.hidden = true;
+});
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  confirmation.textContent = 'Simulasi berhasil. Data belum dikirim ke mana pun.';
+  confirmation.hidden = false;
+  form.reset();
+  confirmation.scrollIntoView({block:'nearest'});
+});
+
+const cardViewer = document.querySelector('#card-viewer');
+const cardFront = document.querySelector('#card-front');
+const cardBack = document.querySelector('#card-back');
+const flipCard = document.querySelector('#flip-card');
+document.querySelector('#open-card').addEventListener('click', () => cardViewer.showModal());
+document.querySelector('#close-card').addEventListener('click', () => cardViewer.close());
+flipCard.addEventListener('click', () => {
+  const showBack = cardBack.hidden;
+  cardBack.hidden = !showBack;
+  cardFront.hidden = showBack;
+  flipCard.textContent = showBack ? 'Lihat sisi depan' : 'Lihat sisi belakang';
+});
+
+const player = document.querySelector('#player');
+const frameSlot = document.querySelector('#video-frame');
+function playVideo(post, url) {
+  const frame = document.createElement('iframe');
+  frame.title = post.title;
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + post.id + '?autoplay=1&playsinline=1';
+  frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  frame.allowFullscreen = true;
+  document.querySelector('#player-title').textContent = post.title;
+  document.querySelector('#video-link').href = url;
+  frameSlot.replaceChildren(frame);
+  player.showModal();
+}
+document.querySelector('#close-player').addEventListener('click', () => player.close());
+player.addEventListener('close', () => frameSlot.replaceChildren());
+</script>
+</body>
+</html>
