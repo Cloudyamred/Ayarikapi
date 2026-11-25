@@ -89,7 +89,7 @@ body{background:var(--pink)}
 h1{font-weight:750;letter-spacing:.14em;font-size:clamp(1.8rem,9.5vw,3rem)}
 
 .bio{margin-top:16px}
-.stat{box-shadow:3px 3px 0 #66b6bc;transition:transform .18s ease,box-shadow .18s ease}
+.stat{box-shadow:2px 4px 2px #59d9eb75;transition:transform .18s ease,box-shadow .18s ease}
 
 .content{background:#effaf2}
 
@@ -99,9 +99,6 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 #player{width:min(calc(100% - 24px),760px)}
 .video-frame{aspect-ratio:16/9;margin:8px 0;background:var(--ink)}
 .video-frame iframe{display:block;width:100%;height:100%;border:0}
-#card-viewer{width:min(calc(100% - 24px),470px)}
-#card-viewer img{display:block;max-height:calc(100dvh - 145px);width:100%;object-fit:contain;margin:6px auto 10px}
-.card-toggle{width:100%;padding:7px;background:var(--lime);border:1px solid var(--ink);font-weight:750}
 .contact-link{display:block;width:max-content;max-width:100%;margin:12px 0 0;font-weight:750}
 @media (hover:hover){
 
@@ -110,7 +107,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 }
 @media (min-width:760px){
   .page{display:block;width:min(calc(100% - 52px),970px);margin:34px auto}
-  .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:16px clamp(22px,4vw,54px);padding:clamp(28px,4vw,52px);border:0}
+  .hero{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);align-items:center;gap:16px clamp(20px,3vw,34px);padding:clamp(24px,3.4vw,42px);border:0}
   .brand{grid-column:2;grid-row:1;align-self:end}
   .hero-artwork{grid-column:1;grid-row:1 / span 4;min-width:0;text-align:center}
 
@@ -123,7 +120,6 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 @media(prefers-reduced-motion:no-preference){
 
   .track{animation:card-in .23s ease-out both}
-  #card-viewer img{animation:card-in .23s ease-out both}
   @keyframes card-in{from{opacity:.45;translate:0 6px}to{opacity:1;translate:0 0}}
 }
 @media(prefers-reduced-motion:reduce){
@@ -139,13 +135,12 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .hero{padding:34px 13px 27px}
 
   h1{font-size:clamp(29px,11.5vw,51px);font-weight:700;letter-spacing:.105em;color:var(--mobile-ink)}
-  #open-card{display:none}
   .hero-artwork{margin:32px auto 0}
   .bio{max-width:32ch;margin:20px auto 28px;font-size:clamp(14px,4.48vw,19px);line-height:1.19;color:#121514}
   .desktop-bio{display:none}
   .bio strong{padding:0;background:none}
   .stats{max-width:none;gap:9px}
-  .stat{min-height:61px;box-shadow:1px 3px 2px #3598a254}
+  .stat{min-height:61px}
   .stat:hover{background:linear-gradient(120deg,#f9facd,#d1f2a6)}
 
   .handle{font-size:clamp(16px,5.05vw,23px);color:#315b58}
@@ -176,7 +171,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .mobile-scrollbar span{display:block;width:var(--thumb-width, 45%);height:100%;border:1px solid #f6a2b8;border-radius:20px;background:#fffaf0;transform:translateX(var(--thumb-offset,0px))}
 }
 </style>
-<link rel="stylesheet" href="mobile-motion.css?v=3">
+<link rel="stylesheet" href="mobile-motion.css?v=4">
 <script src="mobile-motion.js?v=2" defer></script>
 </head>
 <body>
@@ -207,7 +202,6 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
         </div>
         <img class="portrait-profile" src="assets/mobile/portrait.webp" width="739" height="622" alt="Rika tersenyum sambil memegang tanaman kecil." fetchpriority="high" decoding="async">
       </div>
-      <button type="button" id="open-card" aria-haspopup="dialog">Lihat kartu asli</button>
     </div>
     <p class="bio"><span class="desktop-bio">Streamer dengan <strong>10K+ pengikut di tiap platform</strong>. Jago streaming, voice acting, dan siap bikin brand kamu trending.</span><span class="mobile-only">Streamer serbabisa dengan<br><strong>10K+ Followers di tiap platform.</strong><br>Jago streaming, voice acting, dan siap bikin brand kamu trending</span></p>
     <ul class="stats" aria-label="Media sosial Ayarikapi">
@@ -219,9 +213,11 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   </section>
 
   <section class="collaboration" aria-labelledby="collab-title">
-    <h2 id="collab-title">Let’s create something<br>together!</h2>
-    <p>Untuk Kolaborasi, voice acting, dan<br>brand campaign/ partnership</p>
-    <button type="button" id="collab-inquiry" aria-haspopup="dialog"><img class="ui-icon" src="assets/mobile/mail.svg" alt="" decoding="async">Collab with me!</button>
+    <h2 id="collab-title">Let’s create something<br> together!</h2>
+    <div class="collaboration-action">
+      <p>Untuk Kolaborasi, voice acting, dan<br> brand campaign/ partnership</p>
+      <button type="button" id="collab-inquiry" aria-haspopup="dialog"><img class="ui-icon" src="assets/mobile/mail.svg" alt="" decoding="async">Collab with me!</button>
+    </div>
   </section>
   <section class="content" aria-labelledby="popular-title">
     <div class="heading">
@@ -271,14 +267,6 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     <a class="contact-link" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer">Hubungi lewat Instagram</a>
   </div>
 </dialog>
-<dialog id="card-viewer" aria-labelledby="card-title">
-  <div class="dialog-inner">
-    <div class="dialog-head"><h2 id="card-title">Kartu asli</h2><button type="button" class="close" id="close-card" aria-label="Tutup kartu">×</button></div>
-    <img id="card-front" src="card-front.jpg" width="664" height="920" alt="Sisi ilustrasi kartu asli." loading="lazy">
-    <img id="card-back" src="card-back.jpg" width="664" height="920" alt="Sisi informasi kartu asli." loading="lazy" hidden>
-    <button type="button" class="card-toggle" id="flip-card">Lihat sisi belakang</button>
-  </div>
-</dialog>
 <dialog id="player" aria-labelledby="player-title">
   <div class="dialog-inner">
     <div class="dialog-head"><h2 id="player-title">YouTube</h2><button type="button" class="close" id="close-player" aria-label="Tutup pemutar">×</button></div>
@@ -289,21 +277,36 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 <script>
 const content = {
   youtube: [
-    {title:"SAY NO – Tasya Kamila / by ayarikapi", type:"Cover · 49K tayangan", id:"KesOSmWdVJI", url:"https://www.youtube.com/watch?v=KesOSmWdVJI"},
-    {title:"Cuplikan YouTube · 42:39", type:"YouTube", id:"5E5-cA_x7tw", start:2559, url:"https://www.youtube.com/watch?v=5E5-cA_x7tw&t=2559s"},
-    {title:"Cuplikan YouTube · 2:37:25", type:"YouTube", id:"7pmfwGEawK0", start:9445, url:"https://www.youtube.com/watch?v=7pmfwGEawK0&t=9445s"}
+    {title:"【COVER】SAY NO - Tasya Kamila / by ayarikapi", views:49774, id:"KesOSmWdVJI", url:"https://youtu.be/KesOSmWdVJI?si=uAfzWEyO0WfaD6PL"},
+    {title:"IRL CFD COSPLAY ZETA", views:6624, id:"5E5-cA_x7tw", url:"https://www.youtube.com/live/5E5-cA_x7tw?si=W4Hbig0LCXQVz8FT"},
+    {title:"SESI KONSULTASI DISCORD SPESIAL 100K MEMBER", views:12239, id:"7pmfwGEawK0", url:"https://www.youtube.com/live/7pmfwGEawK0?si=7ek8i1ECkQOPEJCk"}
   ],
   tiktok: [
-    {title:"POV: aura kawaii anime", type:"TikTok", url:"https://www.tiktok.com/@ayarikapi/video/7706445746412817671"},
-    {title:"TikTok pilihan 2", type:"TikTok", url:"https://www.tiktok.com/@ayarikapi/video/7609686165976780040"},
-    {title:"TikTok pilihan 3", type:"TikTok", url:"https://www.tiktok.com/@ayarikapi/video/7677939915283287314"}
+    {title:"POV: aura kawaii anime", id:"7706445746412817671", url:"https://www.tiktok.com/@ayarikapi/video/7706445746412817671"},
+    {title:"Video TikTok 2", id:"7609686165976780040", url:"https://www.tiktok.com/@ayarikapi/video/7609686165976780040"},
+    {title:"Video TikTok 3", id:"7677939915283287314", url:"https://www.tiktok.com/@ayarikapi/video/7677939915283287314"}
   ],
   instagram: [
-    {title:"Reel pilihan 1", type:"Instagram Reels", url:"https://www.instagram.com/reel/DfjWTWpB7UM/"},
-    {title:"Reel pilihan 2", type:"Instagram Reels", url:"https://www.instagram.com/reel/DcdjVpMzRrf/"},
-    {title:"Reel pilihan 3", type:"Instagram Reels", url:"https://www.instagram.com/reel/Dfo5iALTOe_/"}
+    {title:"Instagram Reel 1", id:"DfjWTWpB7UM", url:"https://www.instagram.com/reel/DfjWTWpB7UM/"},
+    {title:"Instagram Reel 2", id:"DcdjVpMzRrf", url:"https://www.instagram.com/reel/DcdjVpMzRrf/"},
+    {title:"Instagram Reel 3", id:"Dfo5iALTOe_", url:"https://www.instagram.com/reel/Dfo5iALTOe_/"}
   ]
 };
+const players = {
+  youtube: {
+    label: 'YouTube',
+    embed: id => 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1'
+  },
+  tiktok: {
+    label: 'TikTok',
+    embed: id => 'https://www.tiktok.com/player/v1/' + id + '?autoplay=1&description=0&music_info=0'
+  },
+  instagram: {
+    label: 'Instagram',
+    embed: id => 'https://www.instagram.com/reel/' + id + '/embed/'
+  }
+};
+const viewCount = new Intl.NumberFormat('id-ID');
 
 const platforms = Object.keys(content);
 const tabs = [...document.querySelectorAll('[role="tab"]')];
@@ -312,50 +315,44 @@ const next = document.querySelector('#next');
 const note = document.querySelector('#content-note');
 let currentTrack;
 
-function renderTile(post, index, platform) {
-  const url = post.url;
-  const tile = document.createElement(post.id ? 'button' : url ? 'a' : 'div');
-  tile.className = 'tile';
-  if (post.id) {
-    tile.type = 'button';
-    tile.setAttribute('aria-haspopup', 'dialog');
-    tile.addEventListener('click', () => playVideo(post));
-  } else if (url) {
-    tile.href = url;
-    tile.target = '_blank';
-    tile.rel = 'noopener noreferrer';
+function renderTile(post, platform) {
+  const youtube = platform === 'youtube';
+  const tile = document.createElement('button');
+  tile.className = youtube ? 'tile' : 'tile tile-short';
+  tile.type = 'button';
+  tile.setAttribute('aria-haspopup', 'dialog');
+  tile.addEventListener('click', () => playVideo(post, platform));
 
-  }
   const thumb = document.createElement('span');
   thumb.className = 'thumb';
   thumb.setAttribute('aria-hidden', 'true');
-  if (!post.id && url) {
-    const symbol = document.createElement('img');
-    symbol.className = 'external-preview-icon';
-    symbol.src = 'assets/mobile/' + platform + '.svg';
-    symbol.alt = '';
-    symbol.loading = 'lazy';
-    thumb.append(symbol);
+
+  const image = document.createElement('img');
+  image.alt = '';
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.addEventListener('error', () => image.remove(), {once:true});
+  image.src = youtube
+    ? 'https://i.ytimg.com/vi/' + post.id + '/mqdefault.jpg'
+    : 'assets/previews/' + platform + '-' + post.id + '.jpg';
+  thumb.append(image);
+  tile.append(thumb);
+
+  if (!youtube) {
+    tile.setAttribute('aria-label', 'Putar ' + post.title);
+    return tile;
   }
-  if (post.id) {
-    const img = document.createElement('img');
-    img.alt = '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.addEventListener('error', () => img.remove(), {once:true});
-    img.src = 'https://i.ytimg.com/vi/' + post.id + '/mqdefault.jpg';
-    thumb.append(img);
-  }
+
   const copy = document.createElement('span');
   copy.className = 'tile-copy';
   const title = document.createElement('span');
   title.className = 'tile-title';
-  title.textContent = post.title || 'Slot konten ' + (index + 1);
+  title.textContent = post.title;
   const meta = document.createElement('span');
   meta.className = 'tile-meta';
-  meta.textContent = post.type || (platform === 'instagram' ? 'Menunggu link Reel' : 'Menunggu link video');
+  meta.textContent = viewCount.format(post.views) + ' tayangan';
   copy.append(title, meta);
-  tile.append(thumb, copy);
+  tile.append(copy);
   return tile;
 }
 
@@ -368,7 +365,7 @@ for (const platform of platforms) {
   track.className = 'track';
   track.tabIndex = 0;
   track.setAttribute('aria-label', 'Daftar konten yang bisa digeser');
-  track.append(...content[platform].map((post, index) => renderTile(post, index, platform)));
+  track.append(...content[platform].map(post => renderTile(post, platform)));
   track.addEventListener('scroll', updateControls, {passive:true});
   panel.append(track);
   document.querySelector('#panels').append(panel);
@@ -438,32 +435,21 @@ form.addEventListener('submit', event => {
   confirmation.scrollIntoView({block:'nearest'});
 });
 
-const cardViewer = document.querySelector('#card-viewer');
-const cardFront = document.querySelector('#card-front');
-const cardBack = document.querySelector('#card-back');
-const flipCard = document.querySelector('#flip-card');
-document.querySelector('#open-card').addEventListener('click', () => cardViewer.showModal());
-document.querySelector('#close-card').addEventListener('click', () => cardViewer.close());
-flipCard.addEventListener('click', () => {
-  const showBack = cardBack.hidden;
-  cardBack.hidden = !showBack;
-  cardFront.hidden = showBack;
-  flipCard.textContent = showBack ? 'Lihat sisi depan' : 'Lihat sisi belakang';
-});
-
 const player = document.querySelector('#player');
 const frameSlot = document.querySelector('#video-frame');
-function playVideo(post) {
+function playVideo(post, platform) {
+  const provider = players[platform];
   const frame = document.createElement('iframe');
   frame.title = post.title;
-  const query = new URLSearchParams({autoplay:'1', playsinline:'1'});
-  if (post.start) query.set('start', String(post.start));
-  frame.src = 'https://www.youtube-nocookie.com/embed/' + post.id + '?' + query;
+  frame.src = provider.embed(post.id);
   frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.allowFullscreen = true;
   document.querySelector('#player-title').textContent = post.title;
-  document.querySelector('#video-link').href = post.url;
+  const link = document.querySelector('#video-link');
+  link.href = post.url;
+  link.textContent = 'Buka di ' + provider.label;
+  player.dataset.platform = platform;
   frameSlot.replaceChildren(frame);
   player.showModal();
 }
