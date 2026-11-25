@@ -40,11 +40,8 @@ h1{font-size:clamp(2rem,10vw,3.65rem);line-height:1;letter-spacing:.095em;font-w
 .count span{font-size:.68rem;font-weight:650}
 .snapshot{text-align:center;margin-top:9px;font-size:.76rem;color:#3e5351}
 .content{background:#eaf9f7;border-top:1.5px solid var(--ink);padding:17px 16px 17px}
-.heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.content > h2{margin-bottom:10px;font-weight:600}
 h2{font-size:1.42rem;line-height:1.2;font-weight:850;letter-spacing:-.022em}
-.nav{display:flex;gap:5px}
-.nav button{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--ink);background:#f7ffed;font-size:1.4rem;line-height:1}
-.nav button:disabled{opacity:.45;cursor:default}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding:0 2px 5px;margin:0 -2px 8px;scrollbar-width:thin}
 .tab{min-height:40px;flex:0 0 auto;padding:5px 12px;border:1px solid var(--ink);background:#fffdf3;font-size:.84rem;font-weight:720}
 .tab[aria-selected=true]{background:var(--lime);box-shadow:2px 2px 0 #f29aa6}
@@ -54,9 +51,8 @@ a.tile:hover .tile-title{text-decoration:underline}
 .thumb{aspect-ratio:1.7;display:grid;place-items:center;position:relative;isolation:isolate;overflow:hidden;background:repeating-linear-gradient(135deg,transparent 0 16px,#fff7 16px 17px),linear-gradient(130deg,#ffd1d2,#fbf4ce 58%,#b8edf0);border-bottom:1px solid #3b4c44}
 .thumb::before{content:"✦";font-size:2.1rem;color:#815263}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tile-copy{display:grid;gap:3px;padding:8px 8px 10px}
-.tile-title{font-weight:760;font-size:.87rem;line-height:1.25}
-.tile-meta,.content-note{font-size:.74rem;color:var(--muted)}
+.tile-title{padding:8px 8px 10px;font-weight:760;font-size:.87rem;line-height:1.25}
+.content-note{font-size:.74rem;color:var(--muted)}
 .content-note{margin-top:6px}
 
 dialog{width:min(calc(100% - 20px),480px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1.5px solid var(--ink);color:var(--ink);background:var(--white);box-shadow:5px 5px 0 var(--coral);overflow:auto}
@@ -150,8 +146,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .snapshot{margin:27px 0 0;text-align:right;color:#131a1c;font-size:.65rem}
 
   .content{padding:26px 13px 46px;background:#ecf8ef;border:0}
-  .heading{display:block;margin:0 0 17px;text-align:center}
-  .nav{display:none}
+  .content > h2{margin-bottom:17px;text-align:center}
   .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:2px 1px 4px;margin:0 0 20px;overflow:visible}
   .tab{min-height:39px;padding:5px 0;background:#fffdf3;border-color:var(--mobile-line);font-size:clamp(12px,3.7vw,16px);color:#111}
   .tab[aria-selected=true]{background:var(--mobile-lime);box-shadow:1px 2px 2px #25849640}
@@ -163,9 +158,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .thumb{aspect-ratio:1.57;background:#d1dbd5}
   .thumb::before{content:none}
   button.tile .thumb::after{background:#fffdf0;border:0;color:transparent;width:25px;height:28px;padding:0;clip-path:polygon(0 0,100% 50%,0 100%)}
-  .tile-copy{min-height:73px;padding:9px 10px 10px;background:#fffcf2}
-  .tile-title{line-height:1.2;color:#171411}
-  .tile-meta{color:#181817}
+  .tile-title{padding:9px 10px 10px;line-height:1.2;color:#171411}
   .content-note{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
   .mobile-scrollbar{display:block;width:100%;height:8px;margin-top:12px;overflow:hidden;border-radius:20px;background:#d0dcd4}
   .mobile-scrollbar span{display:block;width:var(--thumb-width, 45%);height:100%;border:1px solid #f6a2b8;border-radius:20px;background:#fffaf0;transform:translateX(var(--thumb-offset,0px))}
@@ -220,13 +213,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     </div>
   </section>
   <section class="content" aria-labelledby="popular-title">
-    <div class="heading">
-      <h2 id="popular-title">Popular Content</h2>
-      <div class="nav" aria-label="Geser konten">
-        <button type="button" id="prev" aria-label="Konten sebelumnya">‹</button>
-        <button type="button" id="next" aria-label="Konten selanjutnya">›</button>
-      </div>
-    </div>
+    <h2 id="popular-title">Popular Content</h2>
     <div class="tabs" role="tablist" aria-label="Platform konten">
       <button class="tab" type="button" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="true">YouTube</button>
       <button class="tab" type="button" role="tab" id="tab-tiktok" aria-controls="panel-tiktok" aria-selected="false" tabindex="-1">TikTok</button>
@@ -277,9 +264,9 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 <script>
 const content = {
   youtube: [
-    {title:"【COVER】SAY NO - Tasya Kamila / by ayarikapi", views:49774, id:"KesOSmWdVJI", url:"https://youtu.be/KesOSmWdVJI?si=uAfzWEyO0WfaD6PL"},
-    {title:"IRL CFD COSPLAY ZETA", views:6624, id:"5E5-cA_x7tw", url:"https://www.youtube.com/live/5E5-cA_x7tw?si=W4Hbig0LCXQVz8FT"},
-    {title:"SESI KONSULTASI DISCORD SPESIAL 100K MEMBER", views:12239, id:"7pmfwGEawK0", url:"https://www.youtube.com/live/7pmfwGEawK0?si=7ek8i1ECkQOPEJCk"}
+    {title:"【COVER】SAY NO - Tasya Kamila / by ayarikapi", id:"KesOSmWdVJI", url:"https://youtu.be/KesOSmWdVJI?si=uAfzWEyO0WfaD6PL"},
+    {title:"IRL CFD COSPLAY ZETA", id:"5E5-cA_x7tw", url:"https://www.youtube.com/live/5E5-cA_x7tw?si=W4Hbig0LCXQVz8FT"},
+    {title:"SESI KONSULTASI DISCORD SPESIAL 100K MEMBER", id:"7pmfwGEawK0", url:"https://www.youtube.com/live/7pmfwGEawK0?si=7ek8i1ECkQOPEJCk"}
   ],
   tiktok: [
     {title:"POV: aura kawaii anime", id:"7706445746412817671", url:"https://www.tiktok.com/@ayarikapi/video/7706445746412817671"},
@@ -306,12 +293,10 @@ const players = {
     embed: id => 'https://www.instagram.com/reel/' + id + '/embed/'
   }
 };
-const viewCount = new Intl.NumberFormat('id-ID');
 
 const platforms = Object.keys(content);
 const tabs = [...document.querySelectorAll('[role="tab"]')];
-const previous = document.querySelector('#prev');
-const next = document.querySelector('#next');
+const scrollbar = document.querySelector('#carousel-scrollbar');
 const note = document.querySelector('#content-note');
 let currentTrack;
 
@@ -343,16 +328,10 @@ function renderTile(post, platform) {
     return tile;
   }
 
-  const copy = document.createElement('span');
-  copy.className = 'tile-copy';
   const title = document.createElement('span');
   title.className = 'tile-title';
   title.textContent = post.title;
-  const meta = document.createElement('span');
-  meta.className = 'tile-meta';
-  meta.textContent = viewCount.format(post.views) + ' tayangan';
-  copy.append(title, meta);
-  tile.append(copy);
+  tile.append(title);
   return tile;
 }
 
@@ -366,16 +345,13 @@ for (const platform of platforms) {
   track.tabIndex = 0;
   track.setAttribute('aria-label', 'Daftar konten yang bisa digeser');
   track.append(...content[platform].map(post => renderTile(post, platform)));
-  track.addEventListener('scroll', updateControls, {passive:true});
+  track.addEventListener('scroll', updateScrollbar, {passive:true});
   panel.append(track);
   document.querySelector('#panels').append(panel);
 }
 
-function updateControls() {
+function updateScrollbar() {
   if (!currentTrack) return;
-  previous.disabled = currentTrack.scrollLeft < 4;
-  next.disabled = currentTrack.scrollWidth - currentTrack.clientWidth - currentTrack.scrollLeft < 4;
-  const scrollbar = document.querySelector('#carousel-scrollbar');
   const ratio = currentTrack.clientWidth / (currentTrack.scrollWidth || 1);
   scrollbar.style.setProperty('--thumb-width', Math.min(1, ratio) * 100 + '%');
   scrollbar.style.setProperty('--thumb-offset', currentTrack.scrollLeft * ratio + 'px');
@@ -392,7 +368,7 @@ function selectTab(index, moveFocus = false) {
   });
   if (moveFocus) tabs[index].focus();
   note.textContent = content[platforms[index]].length + ' video pilihan';
-  updateControls();
+  updateScrollbar();
 }
 
 tabs.forEach((tab,index) => {
@@ -410,13 +386,7 @@ tabs.forEach((tab,index) => {
   });
 });
 
-function scrollByTile(direction) {
-  const gap = parseFloat(getComputedStyle(currentTrack).columnGap);
-  currentTrack.scrollBy({left:direction * (currentTrack.firstElementChild.offsetWidth + gap)});
-}
-previous.addEventListener('click', () => scrollByTile(-1));
-next.addEventListener('click', () => scrollByTile(1));
-window.addEventListener('resize', updateControls);
+window.addEventListener('resize', updateScrollbar);
 selectTab(0);
 
 const inquiry = document.getElementById('inquiry');
