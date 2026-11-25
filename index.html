@@ -40,7 +40,7 @@ h1{font-size:clamp(2rem,10vw,3.65rem);line-height:1;letter-spacing:.095em;font-w
 .count span{font-size:.68rem;font-weight:650}
 .snapshot{text-align:center;margin-top:9px;font-size:.76rem;color:#3e5351}
 .content{background:#eaf9f7;border-top:1.5px solid var(--ink);padding:17px 16px 17px}
-.content > h2{margin-bottom:10px;font-weight:600}
+.content-heading h2{margin-bottom:10px;font-weight:600}
 h2{font-size:1.42rem;line-height:1.2;font-weight:850;letter-spacing:-.022em}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding:0 2px 5px;margin:0 -2px 8px;scrollbar-width:thin}
 .tab{min-height:40px;flex:0 0 auto;padding:5px 12px;border:1px solid var(--ink);background:#fffdf3;font-size:.84rem;font-weight:720}
@@ -52,8 +52,7 @@ a.tile:hover .tile-title{text-decoration:underline}
 .thumb::before{content:"✦";font-size:2.1rem;color:#815263}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile-title{padding:8px 8px 10px;font-weight:760;font-size:.87rem;line-height:1.25}
-.content-note{font-size:.74rem;color:var(--muted)}
-.content-note{margin-top:6px}
+
 
 dialog{width:min(calc(100% - 20px),480px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1.5px solid var(--ink);color:var(--ink);background:var(--white);box-shadow:5px 5px 0 var(--coral);overflow:auto}
 dialog::backdrop{background:#29353599}
@@ -91,7 +90,7 @@ h1{font-weight:750;letter-spacing:.14em;font-size:clamp(1.8rem,9.5vw,3rem)}
 
 .tile{transition:transform .18s ease}
 button.tile{padding:0;text-align:left;color:inherit;font-family:inherit}
-button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#fff9e8;padding:5px 12px;border:1px solid #fff8e2}
+button.tile .thumb::after{content:"▶";position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:1;background:#423936de;color:#fff9e8;padding:5px 12px;border:1px solid #fff8e2}
 #player{width:min(calc(100% - 24px),760px)}
 .video-frame{aspect-ratio:16/9;margin:8px 0;background:var(--ink)}
 .video-frame iframe{display:block;width:100%;height:100%;border:0}
@@ -111,6 +110,9 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .stats{grid-column:2;grid-row:3;width:100%}
   .snapshot{grid-column:2;grid-row:4;margin:0}
   .content{border-top:1.5px solid var(--ink)}
+  .content-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:14px}
+  .content-heading h2{margin:0;font-size:clamp(1.9rem,3.5vw,2.45rem)}
+  .content-heading .tabs{flex:none;margin:0;padding:2px 3px 4px}
   .track{grid-auto-columns:minmax(180px,1fr)}
 }
 @media(prefers-reduced-motion:no-preference){
@@ -146,7 +148,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .snapshot{margin:27px 0 0;text-align:right;color:#131a1c;font-size:.65rem}
 
   .content{padding:26px 13px 46px;background:#ecf8ef;border:0}
-  .content > h2{margin-bottom:17px;text-align:center}
+  .content-heading h2{margin-bottom:17px;text-align:center;font-size:clamp(21px,6.3vw,29px);line-height:1.12}
   .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:2px 1px 4px;margin:0 0 20px;overflow:visible}
   .tab{min-height:39px;padding:5px 0;background:#fffdf3;border-color:var(--mobile-line);font-size:clamp(12px,3.7vw,16px);color:#111}
   .tab[aria-selected=true]{background:var(--mobile-lime);box-shadow:1px 2px 2px #25849640}
@@ -159,7 +161,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .thumb::before{content:none}
   button.tile .thumb::after{background:#fffdf0;border:0;color:transparent;width:25px;height:28px;padding:0;clip-path:polygon(0 0,100% 50%,0 100%)}
   .tile-title{padding:9px 10px 10px;line-height:1.2;color:#171411}
-  .content-note{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+
   .mobile-scrollbar{display:block;width:100%;height:8px;margin-top:12px;overflow:hidden;border-radius:20px;background:#d0dcd4}
   .mobile-scrollbar span{display:block;width:var(--thumb-width, 45%);height:100%;border:1px solid #f6a2b8;border-radius:20px;background:#fffaf0;transform:translateX(var(--thumb-offset,0px))}
 }
@@ -213,15 +215,16 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     </div>
   </section>
   <section class="content" aria-labelledby="popular-title">
-    <h2 id="popular-title">Popular Content</h2>
-    <div class="tabs" role="tablist" aria-label="Platform konten">
-      <button class="tab" type="button" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="true">YouTube</button>
-      <button class="tab" type="button" role="tab" id="tab-tiktok" aria-controls="panel-tiktok" aria-selected="false" tabindex="-1">TikTok</button>
-      <button class="tab" type="button" role="tab" id="tab-instagram" aria-controls="panel-instagram" aria-selected="false" tabindex="-1">Instagram</button>
+    <div class="content-heading">
+      <h2 id="popular-title">Popular Content</h2>
+      <div class="tabs" role="tablist" aria-label="Platform konten">
+        <button class="tab" type="button" role="tab" id="tab-youtube" aria-controls="panel-youtube" aria-selected="true">YouTube</button>
+        <button class="tab" type="button" role="tab" id="tab-tiktok" aria-controls="panel-tiktok" aria-selected="false" tabindex="-1">TikTok</button>
+        <button class="tab" type="button" role="tab" id="tab-instagram" aria-controls="panel-instagram" aria-selected="false" tabindex="-1">Instagram</button>
+      </div>
     </div>
     <div id="panels"></div>
     <div id="carousel-scrollbar" class="mobile-scrollbar" aria-hidden="true"><span></span></div>
-    <p class="content-note" id="content-note"></p>
   </section>
 
   <footer aria-label="Support and community">
@@ -233,7 +236,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
         <span class="community-hello">Hi, lol Kiw</span>
       </div>
       <a class="footer-link footer-support" href="https://tako.id/ayarikapi/gift" target="_blank" rel="noopener noreferrer"><img class="support-art" width="63" height="63" loading="lazy" src="assets/mobile/tako.webp" alt="" decoding="async"><span>Support <strong>Rika</strong> disini!</span></a>
-      <a class="footer-link footer-community" href="https://www.youtube.com/watch?v=CRqNonrgP20" target="_blank" rel="noopener noreferrer" aria-label="Join our Community. Link Discord di deskripsi YouTube."><img class="ui-icon" loading="lazy" src="assets/mobile/discord.svg" alt="" decoding="async"><span>Join our Community</span></a>
+      <a class="footer-link footer-community" href="https://discord.gg/5unj7mJTQ" target="_blank" rel="noopener noreferrer" aria-label="Join our Community on Discord"><img class="ui-icon" loading="lazy" src="assets/mobile/discord.svg" alt="" decoding="async"><span>Join our Community</span></a>
     </div>
     <div class="credit-strip">Created with <span aria-label="love">♥</span> by <a href="https://github.com/Cloudyamred">cloudyamred</a></div>
   </footer>
@@ -297,7 +300,6 @@ const players = {
 const platforms = Object.keys(content);
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 const scrollbar = document.querySelector('#carousel-scrollbar');
-const note = document.querySelector('#content-note');
 let currentTrack;
 
 function renderTile(post, platform) {
@@ -367,7 +369,6 @@ function selectTab(index, moveFocus = false) {
     if (active) currentTrack = panel.firstElementChild;
   });
   if (moveFocus) tabs[index].focus();
-  note.textContent = content[platforms[index]].length + ' video pilihan';
   updateScrollbar();
 }
 
