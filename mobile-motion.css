@@ -119,6 +119,7 @@
 .credit-strip span { color: #fb739a; }
 
 @media (min-width: 760px) {
+  .brand h1 { font-size: clamp(2rem, 5.2vw, 3rem); }
   #open-card {
     margin-top: 12px;
     padding: 5px 12px;
