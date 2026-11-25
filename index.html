@@ -145,6 +145,76 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 @media(prefers-reduced-motion:reduce){
   .artwork img,.stat,.tile{transition:none}
 }
+
+.mobile-only,.mobile-portrait,.mobile-scrollbar{display:none}
+@media (max-width:759px){
+  :root{--mobile-pink:#ffcbd0;--mobile-ink:#443a36;--mobile-line:#ff86ad;--mobile-lime:linear-gradient(120deg,#f2f8b5,#c7ec97)}
+  body{background:var(--mobile-pink)}
+  .page{width:min(calc(100% - 28px),520px);margin:14px auto 18px;border:2px solid var(--mobile-ink);box-shadow:none;background:#bbf0f6}
+  .mobile-only,.mobile-portrait{display:block}
+  .hero{padding:34px 13px 27px;background:radial-gradient(ellipse at 0 77%,#f6f8e8 0 11%,transparent 11.3%),radial-gradient(ellipse at 105% -6%,#faf8f0 0 23%,transparent 23.2%),#baf1f8}
+  .hero::before{inset:auto auto -53px -50px;width:250px;height:100px;transform:rotate(19deg);background:#57e0ec;border:3px solid #28c8d5;border-radius:58% 52% 0 0;box-shadow:none}
+  .hero::after{display:none}
+  .star.one{top:3px;left:1px;font-size:54px}
+  .star.two{top:130px;left:5px;font-size:48px}
+  .star.three{display:none}
+  .star.four{top:54%;right:15px;bottom:auto;color:#fffdf4;font-size:37px}
+  h1{font-size:clamp(29px,11.5vw,51px);font-weight:700;letter-spacing:.105em;color:var(--mobile-ink)}
+  .ribbon{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+  .mobile-ribbon{width:90%;max-width:390px;aspect-ratio:361/34;margin:9px auto 0;padding:0;border:0;background:none;clip-path:none;color:transparent;text-shadow:none}
+  .mobile-ribbon img{display:block;width:100%;height:auto}
+  #open-card{display:none}
+  .mobile-portrait{width:100%;height:auto;margin:32px auto 0}
+  .bio{max-width:32ch;margin:20px auto 28px;font-size:clamp(14px,4.48vw,19px);line-height:1.19;color:#121514}
+  .desktop-bio{display:none}
+  .bio strong{padding:0;background:none}
+  .stats{max-width:none;gap:9px}
+  .stat{grid-template-columns:53px minmax(0,1fr) minmax(68px,27%);gap:4px;min-height:61px;padding-left:12px;background:var(--mobile-lime);border:1px solid var(--mobile-line);box-shadow:1px 3px 2px #3598a254;color:#265d45}
+  .stat:hover{background:linear-gradient(120deg,#f9facd,#d1f2a6)}
+  .icon{color:#fa87ad;width:42px}
+  .icon svg{width:33px;height:33px}
+  .network{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+  .handle{font-size:clamp(16px,5.05vw,23px);color:#315b58}
+  .count{min-height:59px;border-left:1px solid var(--mobile-line)}
+  .count strong{font-family:var(--body);font-size:clamp(18px,5.7vw,26px);line-height:1.06;font-weight:800}
+  .count span{font-size:clamp(9px,2.8vw,12px);font-weight:500}
+  .snapshot{margin:27px 0 0;text-align:right;color:#131a1c;font-size:.65rem}
+  .mobile-collaboration{padding:31px 16px 40px;text-align:center;color:#fff;background:radial-gradient(ellipse 118% 78% at 58% 30%,transparent 98%,#24cfdb 99.1% 99.5%,transparent 100%),radial-gradient(ellipse 81% 150% at 55% 98%,transparent 98.7%,#259bb2 99.2% 99.7%,transparent 100%),var(--mobile-ink)}
+  .mobile-collaboration h2,.content h2{font-size:clamp(21px,6.3vw,29px);font-weight:820;line-height:1.12}
+  .mobile-collaboration p{margin:18px auto 24px;max-width:30ch;font-size:clamp(13px,3.7vw,16px);line-height:1.26;font-weight:660}
+  .mobile-collaboration button,.footer-link{color:#161510;border:1px solid var(--mobile-line);background:var(--mobile-lime);box-shadow:1px 2px 2px #0003;font:750 clamp(12px,3.6vw,16px)/1.2 var(--body)}
+  .mobile-collaboration button{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:70%;min-height:42px;padding:6px}
+  .mobile-collaboration svg,.footer-link svg{width:22px;height:22px;flex:none;fill:#fa87ad}
+  .work{display:none}
+  .content{padding:26px 13px 46px;background:#ecf8ef;border:0}
+  .heading{display:block;margin:0 0 17px;text-align:center}
+  .nav{display:none}
+  .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:2px 1px 4px;margin:0 0 20px;overflow:visible}
+  .tab{min-height:39px;padding:5px 0;background:#fffdf3;border-color:var(--mobile-line);font-size:clamp(12px,3.7vw,16px);color:#111}
+  .tab[aria-selected=true]{background:var(--mobile-lime);box-shadow:1px 2px 2px #25849640}
+  #panels{position:relative}
+  #panels::after{content:"";position:absolute;inset:0 0 0 auto;width:9%;background:linear-gradient(90deg,transparent,#ecf8ef);pointer-events:none}
+  .track{grid-auto-columns:66%;gap:8px;margin:0;padding:0;scroll-padding-inline:0;scrollbar-width:none}
+  .track::-webkit-scrollbar{display:none}
+  .tile,.thumb{border-color:var(--mobile-line)}
+  .thumb{aspect-ratio:1.57;background:#d1dbd5}
+  .thumb::before{content:none}
+  button.tile .thumb::after{background:#fffdf0;border:0;color:transparent;width:25px;height:28px;padding:0;clip-path:polygon(0 0,100% 50%,0 100%)}
+  .tile-copy{min-height:73px;padding:9px 10px 10px;background:#fffcf2}
+  .tile-title{line-height:1.2;color:#171411}
+  .tile-meta{color:#181817}
+  .content-note{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+  .mobile-scrollbar{display:block;width:100%;height:8px;margin-top:12px;overflow:hidden;border-radius:20px;background:#d0dcd4}
+  .mobile-scrollbar span{display:block;width:var(--thumb-width, 45%);height:100%;border:1px solid #f6a2b8;border-radius:20px;background:#fffaf0;transform:translateX(var(--thumb-offset,0px))}
+  .community-art{position:relative;aspect-ratio:437/203;border-top:2px solid var(--mobile-ink);background:#baf1f8 url('mobile-footer.webp') center/100% 100% no-repeat}
+  .footer-link{position:absolute;left:17.6%;width:64.6%;height:25.8%;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;white-space:nowrap}
+  .footer-support{top:21.35%;background:#fff;color:#0788c2;border-color:#158fba;font-weight:570}
+  .footer-support img{width:clamp(18px,6vw,28px);height:auto}
+  .footer-community{top:51.4%;font-weight:600}
+  .footer-community small{font-size:.55rem;white-space:normal;font-weight:500}
+  .credit-strip{padding:22px 8px;text-align:center;background:var(--mobile-ink);color:#fff;font-size:.86rem;font-weight:550}
+  .credit-strip span{color:#fb739a}
+}
 </style>
 </head>
 <body>
@@ -154,20 +224,27 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     <header class="brand">
       <h1 id="brand-title">AYARIKAPI</h1>
       <p class="ribbon"><span aria-hidden="true">✦</span> Stream | Voice | Content <span aria-hidden="true">✦</span></p>
+      <div class="mobile-only mobile-ribbon" aria-hidden="true"><img src="mobile-ribbon.webp" alt="" width="657" height="62"></div>
     </header>
+    <img class="mobile-portrait" src="mobile-portrait.webp" width="739" height="622" alt="Rika tersenyum sambil memegang tanaman kecil, dalam bingkai ilustrasi dengan telepon retro dan hati warna pastel." fetchpriority="high">
     <button type="button" class="artwork" id="open-card" aria-haspopup="dialog">
       <span class="artwork-preview"><img src="card-front.jpg" width="664" height="920" alt="Ilustrasi chibi Ayarikapi dengan telepon hijau, kacamata merah muda, dan latar biru." fetchpriority="high"></span>
       <span class="artwork-label">Lihat kartu asli</span>
     </button>
-    <p class="bio">Streamer dengan <strong id="bio-milestone">10K+ pengikut di tiap platform</strong>. Jago streaming, voice acting, dan siap bikin brand kamu trending.</p>
+    <p class="bio"><span class="desktop-bio">Streamer dengan <strong>10K+ pengikut di tiap platform</strong>. Jago streaming, voice acting, dan siap bikin brand kamu trending.</span><span class="mobile-only">Streamer serbabisa dengan<br><strong>10K+ Followers di tiap platform.</strong><br>Jago streaming, voice acting, dan siap bikin brand kamu trending</span></p>
     <ul class="stats" aria-label="Media sosial Ayarikapi">
       <li><a class="stat" href="https://www.youtube.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="youtube"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2Z"/></svg></span><span><span class="network">YouTube</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>10.5K</strong><span>Subscribers</span></span></a></li>
       <li><a class="stat" href="https://www.tiktok.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="tiktok"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2h3a5.6 5.6 0 0 0 5 4.9V10a8.8 8.8 0 0 1-5-1.7V16a6 6 0 1 1-6-6l.8.1v3.2a3 3 0 1 0 2.2 2.9Z"/></svg></span><span><span class="network">TikTok</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>12.9K</strong><span>Followers</span></span></a></li>
       <li><a class="stat" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer" data-platform="instagram"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><span class="network">Instagram</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>14.8K</strong><span>Followers</span></span></a></li>
     </ul>
-    <p class="snapshot" id="snapshot">Snapshot profil · 22 Nov 2026</p>
+    <p class="snapshot" id="snapshot"><span class="desktop-bio">Snapshot profil · 22 Nov 2026</span><span class="mobile-only">Profile updated - 22 Nov 2026</span></p>
   </section>
 
+  <section class="mobile-only mobile-collaboration" aria-labelledby="mobile-collab-title">
+    <h2 id="mobile-collab-title">Let’s create something<br>together!</h2>
+    <p>Untuk Kolaborasi, voice acting, dan<br>brand campaign/ partnership</p>
+    <button type="button" id="mobile-inquiry" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v1l-11 6L1 8V7a2 2 0 0 1 2-2Zm20 5v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8l11 6Z"/></svg>Collab with me!</button>
+  </section>
   <section class="content" aria-labelledby="popular-title">
     <div class="heading">
       <h2 id="popular-title">Popular Content</h2>
@@ -182,6 +259,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
       <button class="tab" type="button" role="tab" id="tab-instagram" aria-controls="panel-instagram" aria-selected="false" tabindex="-1">Instagram</button>
     </div>
     <div id="panels"></div>
+    <div id="carousel-scrollbar" class="mobile-scrollbar" aria-hidden="true"><span></span></div>
     <p class="content-note" id="content-note"></p>
   </section>
 
@@ -189,6 +267,13 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     <button type="button" id="start-inquiry" aria-haspopup="dialog">Let’s work together!</button>
     <p>Untuk kolaborasi, voice acting, dan brand campaign.</p>
   </section>
+  <footer class="mobile-only" aria-label="Support and community">
+    <div class="community-art">
+      <a class="footer-link footer-support" href="https://tako.id/ayarikapi/gift" target="_blank" rel="noopener noreferrer"><img src="mobile-support-icon.webp" alt="" width="66" height="52" loading="lazy"><span>Support <strong>Rika</strong> disini!</span></a>
+      <a class="footer-link footer-community" href="https://www.youtube.com/watch?v=CRqNonrgP20" target="_blank" rel="noopener noreferrer" aria-label="Join our Community. Link Discord di deskripsi YouTube."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 4.7a18 18 0 0 0-4.4-1.4l-.6 1.2a16 16 0 0 0-5.4 0l-.6-1.2a18 18 0 0 0-4.4 1.4C1.5 8.8.7 12.8 1.1 16.8a18 18 0 0 0 5.4 2.8l1.1-1.8a12 12 0 0 1-1.7-.9l.4-.4c3.6 1.7 7.8 1.7 11.4 0l.5.4c-.6.4-1.2.7-1.8.9l1.1 1.8a18 18 0 0 0 5.4-2.8c.5-4.7-.8-8.6-3.2-12.1ZM8.4 14.5c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg><span>Join our Community</span></a>
+    </div>
+    <div class="credit-strip">Created with <span aria-label="love">♥</span> by <a href="https://github.com/Cloudyamred">cloudyamred</a></div>
+  </footer>
 </main>
 
 <dialog id="inquiry" aria-labelledby="inquiry-title" aria-describedby="form-note">
@@ -304,6 +389,10 @@ function updateControls() {
   if (!currentTrack) return;
   previous.disabled = currentTrack.scrollLeft < 4;
   next.disabled = currentTrack.scrollWidth - currentTrack.clientWidth - currentTrack.scrollLeft < 4;
+  const scrollbar = document.querySelector('#carousel-scrollbar');
+  const ratio = currentTrack.clientWidth / (currentTrack.scrollWidth || 1);
+  scrollbar.style.setProperty('--thumb-width', Math.min(1, ratio) * 100 + '%');
+  scrollbar.style.setProperty('--thumb-offset', currentTrack.scrollLeft * ratio + 'px');
 }
 
 function selectTab(index, moveFocus = false) {
@@ -348,7 +437,9 @@ selectTab(0);
 const inquiry = document.getElementById('inquiry');
 const form = document.getElementById('inquiry-form');
 const confirmation = form.querySelector('.confirmation');
-document.getElementById('start-inquiry').addEventListener('click', () => inquiry.showModal());
+for (const button of document.querySelectorAll('#start-inquiry, #mobile-inquiry')) {
+  button.addEventListener('click', () => inquiry.showModal());
+}
 document.getElementById('close-inquiry').addEventListener('click', () => inquiry.close());
 form.addEventListener('input', () => {
   confirmation.hidden = true;
