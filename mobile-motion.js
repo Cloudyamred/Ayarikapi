@@ -1,8 +1,8 @@
 (() => {
-  const settings = window.matchMedia('(max-width: 759px) and (prefers-reduced-motion: no-preference)');
+  const settings = window.matchMedia('(prefers-reduced-motion: no-preference)');
   const hero = document.querySelector('.hero');
   const backdrop = hero.querySelector('.hero-parallax');
-  const animatedRegions = [backdrop, hero.querySelector('.mobile-portrait'), document.querySelector('.community-art')];
+  const animatedRegions = [backdrop, hero.querySelector('.hero-portrait'), document.querySelector('.community-art')];
   const layers = Array.from(backdrop.querySelectorAll('[data-depth]'), element => ({
     element,
     depth: Number(element.dataset.depth)

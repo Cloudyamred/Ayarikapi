@@ -22,27 +22,19 @@ button{cursor:pointer}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #147a91;outline-offset:3px}
 [hidden]{display:none!important}
 .page{width:min(100% - 24px,510px);margin:12px auto 26px;border:1.5px solid var(--ink);background:var(--aqua);isolation:isolate;overflow:hidden}
-.hero{position:relative;padding:27px 18px 22px;background:radial-gradient(ellipse at 46% 8%,#fff3ef 0%,transparent 53%),linear-gradient(132deg,#d9f9f8,#b4edf5 62%,#c8f6ef);isolation:isolate;overflow:hidden}
-.hero::before,.hero::after{content:"";position:absolute;z-index:-1;pointer-events:none}
-.hero::before{inset:42% -22% -16% -39%;border:11px solid #7edce8;border-radius:49% 45%;transform:rotate(-24deg);box-shadow:0 14px 0 #ecf6bb,0 -14px 0 #d5f5f2}
-.hero::after{inset:12% -31% 2% 63%;border:8px solid #fbf2bf;border-radius:48%;transform:rotate(28deg)}
-.star{position:absolute;pointer-events:none;line-height:1;color:#fffdf2}
-.star::before{content:"✦"}
-.star.one{top:17px;left:12px;font-size:22px}.star.two{top:65px;right:9px;font-size:22px}.star.three{top:142px;left:6px;font-size:19px}.star.four{bottom:20px;right:10px;font-size:30px;color:#fff7c8}
+.hero{position:relative;padding:27px 18px 22px;isolation:isolate;overflow:hidden}
+
 .brand{text-align:center}
 h1,h2,p{margin:0}
 h1,h2{font-family:var(--title)}
 h1{font-size:clamp(2rem,10vw,3.65rem);line-height:1;letter-spacing:.095em;font-weight:860}
-.ribbon{display:flex;gap:9px;align-items:center;justify-content:center;width:max-content;max-width:100%;margin:12px auto 0;padding:4px 17px;background:#286d7b;color:#fff;font-size:.82rem;font-weight:750;letter-spacing:.13em;border-block:2px solid #80d9e2;clip-path:polygon(5% 0,95% 0,100% 50%,95% 100%,5% 100%,0 50%)}
-.ribbon span{color:#c9f9f1}
 .bio{max-width:34ch;margin:20px auto 17px;text-align:center;line-height:1.48;text-wrap:pretty}
 .bio strong{background:#dbf7f4;padding:1px 3px;box-decoration-break:clone}
 .stats{display:grid;gap:9px;padding:0;margin:0 auto;list-style:none;max-width:380px}
-.stat{display:grid;grid-template-columns:32px minmax(0,1fr) 84px;align-items:center;gap:8px;min-height:58px;text-decoration:none;background:var(--lime);border:1.5px solid #e67e8c;box-shadow:3px 3px 0 #6ab7b8;padding:0 0 0 10px}
+.stat{display:grid;align-items:center;min-height:58px;text-decoration:none}
 .stat:hover{background:#f0f8c4}
-.icon{display:grid;width:30px;height:30px;place-items:center;color:#b8435a}
-.icon svg{width:24px;height:24px}
-.network{display:block;font-weight:760;line-height:1.15}.handle{display:block;font-size:.78rem;color:#45524b}
+
+.handle{display:block;color:#315b58}
 .count{min-height:55px;display:grid;align-content:center;justify-items:center;border-left:1px solid #ce8c8c;line-height:1.2;padding:2px}
 .count strong{font-family:var(--title);font-size:1.19rem;font-weight:900;font-variant-numeric:tabular-nums}
 .count span{font-size:.68rem;font-weight:650}
@@ -66,10 +58,7 @@ a.tile:hover .tile-title{text-decoration:underline}
 .tile-title{font-weight:760;font-size:.87rem;line-height:1.25}
 .tile-meta,.content-note{font-size:.74rem;color:var(--muted)}
 .content-note{margin-top:6px}
-.work{position:relative;padding:19px 16px 22px;border-top:1.5px solid var(--ink);color:var(--white);background:repeating-linear-gradient(40deg,transparent 0 27px,#86dbe734 27px 28px),repeating-linear-gradient(-47deg,transparent 0 33px,#f6a8ad38 33px 34px),#303232}
-.work button{width:100%;min-height:52px;padding:9px 14px;color:var(--ink);background:var(--lime);border:1px solid var(--ink);box-shadow:3px 3px 0 var(--coral);text-align:left;font:850 1.22rem/1.2 var(--title)}
-.work button:hover{background:#f3f8cc}
-.work p{margin-top:10px;font-size:.86rem}
+
 dialog{width:min(calc(100% - 20px),480px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1.5px solid var(--ink);color:var(--ink);background:var(--white);box-shadow:5px 5px 0 var(--coral);overflow:auto}
 dialog::backdrop{background:#29353599}
 .dialog-inner{padding:15px}
@@ -86,7 +75,7 @@ textarea{resize:vertical;min-height:75px}
 @media (min-width:760px){
   .page{width:min(calc(100% - 56px),900px);margin:44px auto;display:grid;grid-template-columns: .91fr 1.09fr}
   .hero{grid-row:span 2;padding:45px 25px 31px;border-right:1.5px solid var(--ink)}
-  .bio{margin-top:25px}.content{border-top:0;padding:29px 24px 22px}.work{padding:19px 24px 24px}
+  .bio{margin-top:25px}.content{border-top:0;padding:29px 24px 22px}
   h1{font-size:clamp(2.35rem,5.1vw,3.35rem)}
 }
 @media (prefers-reduced-motion:no-preference){.track{scroll-behavior:smooth}}
@@ -95,21 +84,15 @@ textarea{resize:vertical;min-height:75px}
 :root{--ink:#423936;--pink:#ffd2d2;--lime:#e2f3ac;--coral:#f8a6ae;--aqua:#bceff4}
 body{background:var(--pink)}
 .page{width:min(calc(100% - 20px),520px);margin:10px auto 30px;border:2px solid var(--ink);box-shadow:4px 4px 0 #e59da4}
-.hero{padding:24px 16px 19px;background:radial-gradient(ellipse at 43% 10%,#fff7ed,transparent 58%),linear-gradient(145deg,#def6f5,#ade9f3 60%,#cdf3df)}
-.hero::before{border-color:#81dbe8;box-shadow:0 13px 0 #fff4c1,0 -13px 0 #ecfcf4}
-.hero::after{border-color:#fff5c4}
+.hero{padding:24px 16px 19px}
+
 h1{font-weight:750;letter-spacing:.14em;font-size:clamp(1.8rem,9.5vw,3rem)}
-.ribbon{background:linear-gradient(#48bccc,#277e90);border-block-color:#b9f9ef;text-shadow:0 1px 1px #164f56}
-.artwork{display:block;width:100%;max-width:410px;margin:17px auto 0;padding:0;position:relative;border:1.5px solid var(--ink);background:var(--pink);box-shadow:3px 4px 0 #f1a5ae;text-align:left;overflow:hidden}
-.artwork-preview{display:block;aspect-ratio:664/590;overflow:hidden}
-.artwork img{display:block;width:100%;height:auto;transform-origin:50% 40%;transition:transform .32s ease}
-.artwork-label{position:absolute;right:7px;bottom:7px;background:#fff7e7;border:1px solid var(--ink);padding:5px 9px;font-size:.75rem;font-weight:760}
+
 .bio{margin-top:16px}
 .stat{box-shadow:3px 3px 0 #66b6bc;transition:transform .18s ease,box-shadow .18s ease}
-.icon{color:#b24463}
+
 .content{background:#effaf2}
-.work{background:repeating-linear-gradient(42deg,transparent 0 37px,#80d9e546 37px 38px),repeating-linear-gradient(-50deg,transparent 0 43px,#f7a6ae43 43px 44px),#423936}
-.work button{background:#f8f5e6}
+
 .tile{transition:transform .18s ease}
 button.tile{padding:0;text-align:left;color:inherit;font-family:inherit}
 button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#fff9e8;padding:5px 12px;border:1px solid #fff8e2}
@@ -121,71 +104,56 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 .card-toggle{width:100%;padding:7px;background:var(--lime);border:1px solid var(--ink);font-weight:750}
 .contact-link{display:block;width:max-content;max-width:100%;margin:12px 0 0;font-weight:750}
 @media (hover:hover){
-  .artwork:hover img{transform:scale(1.04)}
+
   .stat:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #66b6bc}
   .tile:hover{transform:translateY(-2px)}
 }
 @media (min-width:760px){
   .page{display:block;width:min(calc(100% - 52px),970px);margin:34px auto}
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;padding:30px;border:0}
+  .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:16px clamp(22px,4vw,54px);padding:clamp(28px,4vw,52px);border:0}
   .brand{grid-column:2;grid-row:1;align-self:end}
-  .artwork{grid-column:1;grid-row:1 / span 4;margin:0;max-width:none}
+  .hero-artwork{grid-column:1;grid-row:1 / span 4;min-width:0;text-align:center}
+
   .bio{grid-column:2;grid-row:2;margin:0 auto}
   .stats{grid-column:2;grid-row:3;width:100%}
-  .snapshot{grid-column:2;grid-row:4;margin:-12px 0 0}
+  .snapshot{grid-column:2;grid-row:4;margin:0}
   .content{border-top:1.5px solid var(--ink)}
   .track{grid-auto-columns:minmax(180px,1fr)}
 }
 @media(prefers-reduced-motion:no-preference){
-  .artwork{animation:card-in .42s ease-out both}
+
   .track{animation:card-in .23s ease-out both}
   #card-viewer img{animation:card-in .23s ease-out both}
   @keyframes card-in{from{opacity:.45;translate:0 6px}to{opacity:1;translate:0 0}}
 }
 @media(prefers-reduced-motion:reduce){
-  .artwork img,.stat,.tile{transition:none}
+  .stat,.tile{transition:none}
 }
 
-.mobile-only,.mobile-portrait,.mobile-scrollbar{display:none}
+.mobile-only,.mobile-scrollbar{display:none}
 @media (max-width:759px){
   :root{--mobile-pink:#ffcbd0;--mobile-ink:#443a36;--mobile-line:#ff86ad;--mobile-lime:linear-gradient(120deg,#f2f8b5,#c7ec97)}
   body{background:var(--mobile-pink)}
   .page{width:min(calc(100% - 28px),520px);margin:14px auto 18px;border:2px solid var(--mobile-ink);box-shadow:none;background:#bbf0f6}
-  .mobile-only,.mobile-portrait{display:block}
-  .hero{padding:34px 13px 27px;background:radial-gradient(ellipse at 0 77%,#f6f8e8 0 11%,transparent 11.3%),radial-gradient(ellipse at 105% -6%,#faf8f0 0 23%,transparent 23.2%),#baf1f8}
-  .hero::before{inset:auto auto -53px -50px;width:250px;height:100px;transform:rotate(19deg);background:#57e0ec;border:3px solid #28c8d5;border-radius:58% 52% 0 0;box-shadow:none}
-  .hero::after{display:none}
-  .star.one{top:3px;left:1px;font-size:54px}
-  .star.two{top:130px;left:5px;font-size:48px}
-  .star.three{display:none}
-  .star.four{top:54%;right:15px;bottom:auto;color:#fffdf4;font-size:37px}
+  .mobile-only{display:block}
+  .hero{padding:34px 13px 27px}
+
   h1{font-size:clamp(29px,11.5vw,51px);font-weight:700;letter-spacing:.105em;color:var(--mobile-ink)}
-  .ribbon{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
-  .mobile-ribbon{width:90%;max-width:390px;aspect-ratio:361/34;margin:9px auto 0;padding:0;border:0;background:none;clip-path:none;color:transparent;text-shadow:none}
-  .mobile-ribbon img{display:block;width:100%;height:auto}
   #open-card{display:none}
-  .mobile-portrait{width:100%;height:auto;margin:32px auto 0}
+  .hero-artwork{margin:32px auto 0}
   .bio{max-width:32ch;margin:20px auto 28px;font-size:clamp(14px,4.48vw,19px);line-height:1.19;color:#121514}
   .desktop-bio{display:none}
   .bio strong{padding:0;background:none}
   .stats{max-width:none;gap:9px}
-  .stat{grid-template-columns:53px minmax(0,1fr) minmax(68px,27%);gap:4px;min-height:61px;padding-left:12px;background:var(--mobile-lime);border:1px solid var(--mobile-line);box-shadow:1px 3px 2px #3598a254;color:#265d45}
+  .stat{min-height:61px;box-shadow:1px 3px 2px #3598a254}
   .stat:hover{background:linear-gradient(120deg,#f9facd,#d1f2a6)}
-  .icon{color:#fa87ad;width:42px}
-  .icon svg{width:33px;height:33px}
-  .network{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+
   .handle{font-size:clamp(16px,5.05vw,23px);color:#315b58}
-  .count{min-height:59px;border-left:1px solid var(--mobile-line)}
+  .count{min-height:59px}
   .count strong{font-family:var(--body);font-size:clamp(18px,5.7vw,26px);line-height:1.06;font-weight:800}
   .count span{font-size:clamp(9px,2.8vw,12px);font-weight:500}
   .snapshot{margin:27px 0 0;text-align:right;color:#131a1c;font-size:.65rem}
-  .mobile-collaboration{padding:31px 16px 40px;text-align:center;color:#fff;background:radial-gradient(ellipse 118% 78% at 58% 30%,transparent 98%,#24cfdb 99.1% 99.5%,transparent 100%),radial-gradient(ellipse 81% 150% at 55% 98%,transparent 98.7%,#259bb2 99.2% 99.7%,transparent 100%),var(--mobile-ink)}
-  .mobile-collaboration h2,.content h2{font-size:clamp(21px,6.3vw,29px);font-weight:820;line-height:1.12}
-  .mobile-collaboration p{margin:18px auto 24px;max-width:30ch;font-size:clamp(13px,3.7vw,16px);line-height:1.26;font-weight:660}
-  .mobile-collaboration button,.footer-link{color:#161510;border:1px solid var(--mobile-line);background:var(--mobile-lime);box-shadow:1px 2px 2px #0003;font:750 clamp(12px,3.6vw,16px)/1.2 var(--body)}
-  .mobile-collaboration button{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:70%;min-height:42px;padding:6px}
-  .mobile-collaboration svg,.footer-link svg{width:22px;height:22px;flex:none;fill:#fa87ad}
-  .work{display:none}
+
   .content{padding:26px 13px 46px;background:#ecf8ef;border:0}
   .heading{display:block;margin:0 0 17px;text-align:center}
   .nav{display:none}
@@ -206,14 +174,6 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
   .content-note{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
   .mobile-scrollbar{display:block;width:100%;height:8px;margin-top:12px;overflow:hidden;border-radius:20px;background:#d0dcd4}
   .mobile-scrollbar span{display:block;width:var(--thumb-width, 45%);height:100%;border:1px solid #f6a2b8;border-radius:20px;background:#fffaf0;transform:translateX(var(--thumb-offset,0px))}
-  .community-art{position:relative;aspect-ratio:437/203;border-top:2px solid var(--mobile-ink);background:#baf1f8 url('mobile-footer.webp') center/100% 100% no-repeat}
-  .footer-link{position:absolute;left:17.6%;width:64.6%;height:25.8%;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;white-space:nowrap}
-  .footer-support{top:21.35%;background:#fff;color:#0788c2;border-color:#158fba;font-weight:570}
-  .footer-support img{width:clamp(18px,6vw,28px);height:auto}
-  .footer-community{top:51.4%;font-weight:600}
-  .footer-community small{font-size:.55rem;white-space:normal;font-weight:500}
-  .credit-strip{padding:22px 8px;text-align:center;background:var(--mobile-ink);color:#fff;font-size:.86rem;font-weight:550}
-  .credit-strip span{color:#fb739a}
 }
 </style>
 <link rel="stylesheet" href="mobile-motion.css">
@@ -222,7 +182,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
 <body>
 <main class="page">
   <section class="hero" aria-labelledby="brand-title">
-    <div class="mobile-only hero-parallax" aria-hidden="true">
+    <div class="hero-parallax" aria-hidden="true">
       <img class="hero-cloud hero-cloud-large" data-depth=".09" src="assets/mobile/cloud-1.svg" alt="" decoding="async">
       <img class="hero-cloud hero-cloud-small" data-depth=".07" src="assets/mobile/cloud-2.svg" alt="" decoding="async">
       <img class="hero-star-1" data-depth=".045" src="assets/mobile/star-1.svg" alt="" decoding="async">
@@ -230,44 +190,38 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
       <img class="hero-star-3" data-depth=".035" src="assets/mobile/star-3.svg" alt="" decoding="async">
       <img class="hero-sea" data-depth="-.065" src="assets/mobile/sea.svg" alt="" decoding="async">
     </div>
-    <i class="star one" aria-hidden="true"></i><i class="star two" aria-hidden="true"></i><i class="star three" aria-hidden="true"></i><i class="star four" aria-hidden="true"></i>
     <header class="brand">
       <h1 id="brand-title">AYARIKAPI</h1>
-      <p class="ribbon"><span aria-hidden="true">✦</span> Stream | Voice | Content <span aria-hidden="true">✦</span></p>
-      <div class="mobile-only mobile-ribbon" aria-hidden="true"><img src="assets/mobile/ribbon.svg" alt="" width="657" height="62"></div>
+      <div class="brand-ribbon"><img src="assets/mobile/ribbon.svg" alt="Stream | Voice | Content" width="657" height="62"></div>
     </header>
-    <div class="mobile-portrait">
-      <div class="portrait-effects" aria-hidden="true">
-        <img class="portrait-frame" src="assets/mobile/portrait-frame.webp" alt="" decoding="async">
-        <img class="portrait-phone" src="assets/mobile/telephone.svg" alt="" decoding="async">
-        <img class="portrait-thunder" src="assets/mobile/telephone-thunder.svg" alt="" decoding="async">
-        <img class="portrait-heart heart-first" src="assets/mobile/heart-blue-2.svg" alt="" decoding="async">
-        <img class="portrait-heart heart-second" src="assets/mobile/heart-green-2.svg" alt="" decoding="async">
-        <img class="portrait-heart heart-third" src="assets/mobile/heart-green-1.svg" alt="" decoding="async">
-        <img class="portrait-heart heart-fourth" src="assets/mobile/heart-blue-1.svg" alt="" decoding="async">
+    <div class="hero-artwork">
+      <div class="hero-portrait">
+        <div class="portrait-effects" aria-hidden="true">
+          <img class="portrait-frame" src="assets/mobile/portrait-frame.webp" alt="" decoding="async">
+          <img class="portrait-phone" src="assets/mobile/telephone.svg" alt="" decoding="async">
+          <img class="portrait-thunder" src="assets/mobile/telephone-thunder.svg" alt="" decoding="async">
+          <img class="portrait-heart heart-first" src="assets/mobile/heart-blue-2.svg" alt="" decoding="async">
+          <img class="portrait-heart heart-second" src="assets/mobile/heart-green-2.svg" alt="" decoding="async">
+          <img class="portrait-heart heart-third" src="assets/mobile/heart-green-1.svg" alt="" decoding="async">
+          <img class="portrait-heart heart-fourth" src="assets/mobile/heart-blue-1.svg" alt="" decoding="async">
+        </div>
+        <img class="portrait-profile" src="assets/mobile/portrait.webp" width="739" height="622" alt="Rika tersenyum sambil memegang tanaman kecil." fetchpriority="high" decoding="async">
       </div>
-      <picture class="portrait-profile">
-        <source media="(max-width: 759px)" srcset="assets/mobile/portrait.webp">
-        <img src="mobile-portrait.webp" width="739" height="622" alt="Rika tersenyum sambil memegang tanaman kecil." fetchpriority="high" decoding="async">
-      </picture>
+      <button type="button" id="open-card" aria-haspopup="dialog">Lihat kartu asli</button>
     </div>
-    <button type="button" class="artwork" id="open-card" aria-haspopup="dialog">
-      <span class="artwork-preview"><img src="card-front.jpg" width="664" height="920" alt="Ilustrasi chibi Ayarikapi dengan telepon hijau, kacamata merah muda, dan latar biru." fetchpriority="high"></span>
-      <span class="artwork-label">Lihat kartu asli</span>
-    </button>
     <p class="bio"><span class="desktop-bio">Streamer dengan <strong>10K+ pengikut di tiap platform</strong>. Jago streaming, voice acting, dan siap bikin brand kamu trending.</span><span class="mobile-only">Streamer serbabisa dengan<br><strong>10K+ Followers di tiap platform.</strong><br>Jago streaming, voice acting, dan siap bikin brand kamu trending</span></p>
     <ul class="stats" aria-label="Media sosial Ayarikapi">
-      <li><a class="stat" href="https://www.youtube.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="youtube"><span class="icon" aria-hidden="true"><img class="mobile-only social-art" src="assets/mobile/youtube.svg" alt="" decoding="async"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.9 4.7 12 4.7 12 4.7s-5.9 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2Z"/></svg></span><span><span class="network">YouTube</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>10.5K</strong><span>Subscribers</span></span></a></li>
-      <li><a class="stat" href="https://www.tiktok.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="tiktok"><span class="icon" aria-hidden="true"><img class="mobile-only social-art" src="assets/mobile/tiktok.svg" alt="" decoding="async"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2h3a5.6 5.6 0 0 0 5 4.9V10a8.8 8.8 0 0 1-5-1.7V16a6 6 0 1 1-6-6l.8.1v3.2a3 3 0 1 0 2.2 2.9Z"/></svg></span><span><span class="network">TikTok</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>12.9K</strong><span>Followers</span></span></a></li>
-      <li><a class="stat" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer" data-platform="instagram"><span class="icon" aria-hidden="true"><img class="mobile-only social-art" src="assets/mobile/instagram.svg" alt="" decoding="async"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><span class="network">Instagram</span><span class="handle">@ayarikapi</span></span><span class="count"><strong>14.8K</strong><span>Followers</span></span></a></li>
+      <li><a class="stat" href="https://www.youtube.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="youtube"><span class="stat-identity"><img src="assets/mobile/youtube.svg" alt="YouTube" decoding="async"><span class="handle">ayarikapi</span></span><span class="count"><strong>10.5K</strong><span>Subscribers</span></span></a></li>
+      <li><a class="stat" href="https://www.tiktok.com/@ayarikapi" target="_blank" rel="noopener noreferrer" data-platform="tiktok"><span class="stat-identity"><img src="assets/mobile/tiktok.svg" alt="TikTok" decoding="async"><span class="handle">ayarikapi</span></span><span class="count"><strong>13K</strong><span>Followers</span></span></a></li>
+      <li><a class="stat" href="https://www.instagram.com/ayarikapi/" target="_blank" rel="noopener noreferrer" data-platform="instagram"><span class="stat-identity"><img src="assets/mobile/instagram.svg" alt="Instagram" decoding="async"><span class="handle">ayarikapi</span></span><span class="count"><strong>14.9K</strong><span>Followers</span></span></a></li>
     </ul>
-    <p class="snapshot" id="snapshot"><span class="desktop-bio">Snapshot profil · 22 Nov 2026</span><span class="mobile-only">Profile updated - 22 Nov 2026</span></p>
+    <p class="snapshot" id="snapshot">Profile updated - <time datetime="2026-11-26">26 Nov 2026</time></p>
   </section>
 
-  <section class="mobile-only mobile-collaboration" aria-labelledby="mobile-collab-title">
-    <h2 id="mobile-collab-title">Let’s create something<br>together!</h2>
+  <section class="collaboration" aria-labelledby="collab-title">
+    <h2 id="collab-title">Let’s create something<br>together!</h2>
     <p>Untuk Kolaborasi, voice acting, dan<br>brand campaign/ partnership</p>
-    <button type="button" id="mobile-inquiry" aria-haspopup="dialog"><img class="mobile-ui-icon" src="assets/mobile/mail.svg" alt="" decoding="async">Collab with me!</button>
+    <button type="button" id="collab-inquiry" aria-haspopup="dialog"><img class="ui-icon" src="assets/mobile/mail.svg" alt="" decoding="async">Collab with me!</button>
   </section>
   <section class="content" aria-labelledby="popular-title">
     <div class="heading">
@@ -287,11 +241,7 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
     <p class="content-note" id="content-note"></p>
   </section>
 
-  <section class="work" aria-label="Kerja sama">
-    <button type="button" id="start-inquiry" aria-haspopup="dialog">Let’s work together!</button>
-    <p>Untuk kolaborasi, voice acting, dan brand campaign.</p>
-  </section>
-  <footer class="mobile-only" aria-label="Support and community">
+  <footer aria-label="Support and community">
     <div class="community-art">
       <div class="community-characters" aria-hidden="true">
         <img class="community-frog" loading="lazy" src="assets/mobile/frog.svg" alt="" decoding="async">
@@ -299,8 +249,8 @@ button.tile .thumb::after{content:"▶";z-index:1;background:#423936de;color:#ff
         <img class="community-mascot" loading="lazy" src="assets/mobile/mascot.svg" alt="" decoding="async">
         <span class="community-hello">Hi, lol Kiw</span>
       </div>
-      <a class="footer-link footer-support" href="https://tako.id/ayarikapi/gift" target="_blank" rel="noopener noreferrer"><img class="support-art" loading="lazy" src="assets/mobile/support-heart.svg" alt="" decoding="async"><span>Support <strong>Rika</strong> disini!</span></a>
-      <a class="footer-link footer-community" href="https://www.youtube.com/watch?v=CRqNonrgP20" target="_blank" rel="noopener noreferrer" aria-label="Join our Community. Link Discord di deskripsi YouTube."><img class="mobile-ui-icon" loading="lazy" src="assets/mobile/discord.svg" alt="" decoding="async"><span>Join our Community</span></a>
+      <a class="footer-link footer-support" href="https://tako.id/ayarikapi/gift" target="_blank" rel="noopener noreferrer"><img class="support-art" width="63" height="63" loading="lazy" src="assets/mobile/tako.webp" alt="" decoding="async"><span>Support <strong>Rika</strong> disini!</span></a>
+      <a class="footer-link footer-community" href="https://www.youtube.com/watch?v=CRqNonrgP20" target="_blank" rel="noopener noreferrer" aria-label="Join our Community. Link Discord di deskripsi YouTube."><img class="ui-icon" loading="lazy" src="assets/mobile/discord.svg" alt="" decoding="async"><span>Join our Community</span></a>
     </div>
     <div class="credit-strip">Created with <span aria-label="love">♥</span> by <a href="https://github.com/Cloudyamred">cloudyamred</a></div>
   </footer>
@@ -475,9 +425,7 @@ selectTab(0);
 const inquiry = document.getElementById('inquiry');
 const form = document.getElementById('inquiry-form');
 const confirmation = form.querySelector('.confirmation');
-for (const button of document.querySelectorAll('#start-inquiry, #mobile-inquiry')) {
-  button.addEventListener('click', () => inquiry.showModal());
-}
+document.getElementById('collab-inquiry').addEventListener('click', () => inquiry.showModal());
 document.getElementById('close-inquiry').addEventListener('click', () => inquiry.close());
 form.addEventListener('input', () => {
   confirmation.hidden = true;
