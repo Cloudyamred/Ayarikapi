@@ -1,0 +1,136 @@
+.thumb img.external-preview-icon {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+@media (max-width: 759px) {
+  .hero { overflow: hidden; background: #baf1f8; }
+  .hero::before, .hero::after, .hero > .star { display: none; }
+  .hero-parallax {
+    position: absolute;
+    inset: 0;
+    isolation: isolate;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-parallax img {
+    position: absolute;
+    height: auto;
+    translate: 0 var(--parallax-y, 0px);
+  }
+  .hero-cloud-large { top: -10.5%; right: -19%; width: 83%; }
+  .hero-cloud-small { top: 65%; left: -18%; width: 65%; }
+  .hero-star-1 { top: .6%; left: .5%; width: 13.2%; }
+  .hero-star-2 { top: 15.25%; left: .8%; width: 17%; }
+  .hero-star-3 { top: 54%; right: 6%; width: 9.5%; }
+  .hero-sea { bottom: -27px; left: -7%; width: 86%; }
+
+  .mobile-portrait {
+    position: relative;
+    isolation: isolate;
+    aspect-ratio: 739 / 622;
+  }
+  .portrait-effects, .portrait-profile,
+  .portrait-frame, .portrait-profile img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .portrait-profile img, .portrait-frame { object-fit: fill; }
+  .portrait-effects img:not(.portrait-frame) {
+    position: absolute;
+    height: auto;
+  }
+  .portrait-phone { width: 29%; left: 1%; top: 21%; }
+  .portrait-thunder { width: 23%; top: 6%; left: 10%; }
+  .heart-first { width: 8.5%; left: 73%; top: 10%; }
+  .heart-second { width: 10%; left: 82%; top: 20%; }
+  .heart-third { width: 16%; left: 77%; top: 33%; }
+  .heart-fourth { width: 10%; left: 82%; top: 55%; }
+
+  .mobile-collaboration {
+    background: #443a36 url('assets/mobile/collaboration-bg.webp') center / cover no-repeat;
+  }
+  .stat .icon > svg { display: none; }
+  .stat .icon > img { width: min(40px, 100%); height: auto; }
+  .mobile-ui-icon { width: 30px; height: 30px; flex: none; }
+  .footer-support img.support-art { width: clamp(23px, 8vw, 33px); height: auto; }
+
+  .community-art {
+    overflow: hidden;
+    background: #baf1f8 url('assets/mobile/community-bg.webp') center / cover no-repeat;
+  }
+  .community-characters {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .community-characters img, .community-hello { position: absolute; }
+  .community-frog { width: 37%; left: -15%; bottom: -15%; rotate: -9deg; }
+  .community-grok { width: 23%; top: 4%; left: 9%; }
+  .community-mascot { width: 47%; right: -14%; bottom: -8%; }
+  .community-hello {
+    right: 29%;
+    bottom: 6%;
+    color: #067f95;
+    font: 900 clamp(10px, 3.5vw, 17px)/1.1 var(--title);
+    rotate: -5deg;
+  }
+  .footer-link { z-index: 1; }
+}
+@media (max-width: 759px) and (prefers-reduced-motion: no-preference) {
+  .motion-ready .hero-parallax.is-in-view .hero-cloud {
+    animation: cloud-drift 7s ease-in-out infinite alternate;
+  }
+  .motion-ready .hero-parallax.is-in-view .hero-cloud-small {
+    animation-duration: 9s;
+    animation-direction: alternate-reverse;
+  }
+  .motion-ready .mobile-portrait.is-in-view .portrait-thunder {
+    animation: phone-flash 4.4s ease-in-out infinite both;
+  }
+  .motion-ready .mobile-portrait.is-in-view .portrait-heart {
+    animation: heart-sequence 6.8s ease-in-out var(--heart-delay, 0s) infinite both;
+  }
+  .heart-second { --heart-delay: .42s; }
+  .heart-third { --heart-delay: .84s; }
+  .heart-fourth { --heart-delay: 1.26s; }
+
+  .motion-ready .community-art:not(.is-in-view) :is(.community-grok, .community-mascot, .community-hello) { opacity: 0; }
+  .motion-ready .community-art.is-in-view .community-grok {
+    animation: grok-pop .48s cubic-bezier(.2,.85,.3,1.2) .12s both;
+  }
+  .motion-ready .community-art.is-in-view .community-mascot {
+    animation: mascot-enter .7s cubic-bezier(.2,.75,.3,1) .36s both;
+  }
+  .motion-ready .community-art.is-in-view .community-hello {
+    animation: mascot-line .35s ease-out 1.06s both;
+  }
+
+  @keyframes cloud-drift { from { transform: translateX(-5px); } to { transform: translateX(7px); } }
+  @keyframes phone-flash {
+    0%, 12%, 50%, 100% { opacity: 0; }
+    24%, 36% { opacity: 1; }
+  }
+  @keyframes heart-sequence {
+    0%, 58%, 100% { opacity: 0; scale: .7; }
+    8%, 47% { opacity: 1; scale: 1; }
+  }
+  @keyframes grok-pop {
+    from { opacity: 0; scale: .3; rotate: -9deg; }
+    to { opacity: 1; scale: 1; rotate: 0deg; }
+  }
+  @keyframes mascot-enter {
+    from { opacity: 0; translate: 80% 0; }
+    to { opacity: 1; translate: 0 0; }
+  }
+  @keyframes mascot-line {
+    from { opacity: 0; translate: 4px 3px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}
